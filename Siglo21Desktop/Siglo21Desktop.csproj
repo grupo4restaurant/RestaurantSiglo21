@@ -143,7 +143,21 @@
     <Compile Include="Entities\DetalleOrdenInsumo.cs" />
     <Compile Include="Entities\DetalleOrdenMesa.cs" />
     <Compile Include="Entities\DetalleProductoReceta.cs" />
+    <Compile Include="Entities\Domino.cs" />
+    <Compile Include="Entities\Login.cs" />
+    <Compile Include="Entities\MenuItem.cs" />
+    <Compile Include="Entities\Mesa.cs" />
+    <Compile Include="Entities\OrdenCompra.cs" />
+    <Compile Include="Entities\OrdenInsumo.cs" />
+    <Compile Include="Entities\OrdenMesa.cs" />
+    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\Proveedor.cs" />
+    <Compile Include="Entities\Receta.cs" />
+    <Compile Include="Entities\Reserva.cs" />
     <Compile Include="Entities\Rol.cs" />
+    <Compile Include="Entities\StockProducto.cs" />
+    <Compile Include="Entities\UnidadMedida.cs" />
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Enums\CommonEnums.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
