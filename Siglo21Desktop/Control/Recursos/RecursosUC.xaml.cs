@@ -28,12 +28,12 @@ namespace Siglo21Desktop.Control.Recursos
         {
             int index = int.Parse(((Button)e.Source).Uid);
 
-            GridCursor.Margin = new Thickness(10 + (100 * index), 0, 0, 0);
+            GridCursor.Margin = new Thickness(10 + (180 * index), 0, 0, 0);
 
             switch (index)
             {
                 case 0:
-                    GridMain.Background = Brushes.Aquamarine;
+                    GridMain.Background = Brushes.Gray;
 
                     break;
                 case 1:

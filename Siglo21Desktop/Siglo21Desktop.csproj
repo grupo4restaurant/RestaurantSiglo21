@@ -136,6 +136,10 @@
       <DependentUpon>RecursosUsuarioUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dao\RolDAO.cs" />
+    <Compile Include="Entities\Boleta.cs" />
+    <Compile Include="Entities\CatalogoProducto.cs" />
+    <Compile Include="Entities\CategoriaMenu.cs" />
+    <Compile Include="Entities\DetalleOrdenCompra.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Enums\CommonEnums.cs" />
     <Compile Include="Login.xaml.cs">

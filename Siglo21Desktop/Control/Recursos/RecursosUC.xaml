@@ -32,17 +32,17 @@
                 </Grid>-->
                 <Grid Height="100" >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                        <Button Uid="0" Width="100" Content="Producto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
-                        <Button Uid="1" Width="100" Content="Proveedor" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
-                        <Button Uid="2" Width="100" Content="Usuario" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
-                        <Button Uid="3" Width="100" Content="Mesa" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
+                        <Button Uid="0" Width="180" Content="Producto" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
+                        <Button Uid="1" Width="180" Content="Proveedor" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
+                        <Button Uid="2" Width="180" Content="Usuario" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
+                        <Button Uid="3" Width="180" Content="Mesa" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
                         <!--<Button Uid="4" Width="100" Content="PRODUCTS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
                         <Button Uid="5" Width="100" Content="BRANDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>
                         <Button Uid="6" Width="100" Content="GIFT CARDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"/>-->
                     </StackPanel>
-                    <Grid x:Name="GridCursor" Width="100" Height="5" Background="White" HorizontalAlignment="Left" Margin="10 0"/>
+                    <Grid x:Name="GridCursor" Width="180" Height="5" Background="White" HorizontalAlignment="Left" Margin="10 0"/>
                 </Grid>
-                <Grid x:Name="GridMain" Height="460" Background="Aquamarine">
+                <Grid x:Name="GridMain" Height="460" Background="Gray">
 
                 </Grid>
             </StackPanel>
