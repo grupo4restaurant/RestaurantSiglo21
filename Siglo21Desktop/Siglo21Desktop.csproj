@@ -142,6 +142,7 @@
     <Compile Include="Entities\DetalleOrdenCompra.cs" />
     <Compile Include="Entities\DetalleOrdenInsumo.cs" />
     <Compile Include="Entities\DetalleOrdenMesa.cs" />
+    <Compile Include="Entities\DetalleProductoReceta.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Enums\CommonEnums.cs" />
     <Compile Include="Login.xaml.cs">
