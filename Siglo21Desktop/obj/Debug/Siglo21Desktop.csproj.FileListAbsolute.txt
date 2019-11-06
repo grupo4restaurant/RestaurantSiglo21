@@ -86,3 +86,5 @@ C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desk
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.csproj.CopyComplete
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.exe
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.pdb
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Window1.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Window1.baml

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Siglo21Desktop"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="SIglo21 Desktop"
-        mc:Ignorable="d" Height="600" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" >
+        mc:Ignorable="d" Height="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" >
     <Grid Background="#FFEEEEEE" MouseDown="Grid_MouseDown">
         <StackPanel VerticalAlignment="Top">
             <Grid Background="#FF0069C0" Height="10"/>
