@@ -67,6 +67,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Control\Recursos\RecursosMesaUC.xaml.cs">
+      <DependentUpon>RecursosMesaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Recursos\RecursosProductoUC.xaml.cs">
+      <DependentUpon>RecursosProductoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Recursos\RecursosProveedorUC.xaml.cs">
+      <DependentUpon>RecursosProveedorUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dao\BoletaDAO.cs" />
     <Compile Include="Dao\CatalogoProductoDAO.cs" />
     <Compile Include="Dao\CategoriaMenuDAO.cs" />
@@ -112,6 +121,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Control\Inicio\InicioUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\Recursos\RecursosMesaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\Recursos\RecursosProductoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\Recursos\RecursosProveedorUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

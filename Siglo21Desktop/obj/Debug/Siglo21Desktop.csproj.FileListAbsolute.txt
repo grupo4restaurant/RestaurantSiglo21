@@ -134,3 +134,9 @@ C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desk
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.csproj.CopyComplete
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.exe
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.pdb
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosMesaUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosProductoUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosProveedorUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosMesaUC.baml
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosProductoUC.baml
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosProveedorUC.baml

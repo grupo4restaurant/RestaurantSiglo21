@@ -5,20 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Siglo21Desktop.Control.Recursos"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             Height="auto" Width="auto">
+             d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
 
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="318,0,332,218.6" Content="Guardar" Click="Guardar_Button_Click"/>
-
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="318,0,332,181.6" Content="Actualizar" Click="Actualizar_Button_Click"/>
-
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="318,0,332,144.6" Content="Borrar" Click="Borrar_Button_Click" />
-
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="318,0,332,109.6" Content="Obtener" Click="Obtener_Button_Click"/>
-        
+        <StackPanel Orientation="Vertical">
             
+            
+            <Button Width="150"  VerticalAlignment="Bottom"  Content="Guardar" Click="Guardar_Button_Click"/>
+
+            <Button Width="150"  VerticalAlignment="Bottom"  Content="Actualizar" Click="Actualizar_Button_Click"/>
+
+            <Button Width="150"  VerticalAlignment="Bottom"  Content="Borrar" Click="Borrar_Button_Click" />
+
+            <Button Width="150"  VerticalAlignment="Bottom"  Content="Obtener" Click="Obtener_Button_Click"/>
+        </StackPanel>
+
 
     </Grid>
 </UserControl>

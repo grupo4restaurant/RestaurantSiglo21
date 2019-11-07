@@ -28,35 +28,31 @@ namespace Siglo21Desktop.Control.Recursos
         {
             int index = int.Parse(((Button)e.Source).Uid);
 
-            GridCursor.Margin = new Thickness(10 + (180 * index), 0, 0, 0);
+            GridCursor.Margin = new Thickness(10 + (170 * index), 0, 0, 0);
 
             switch (index)
             {
                 case 0:
-                    GridMain.Background = Brushes.Gray;
-
+                    GridMain.Background = Brushes.Aquamarine;
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new RecursosProductoUC());
                     break;
                 case 1:
                     GridMain.Background = Brushes.Beige;
                     GridMain.Children.Clear();
-                    GridMain.Children.Add(new RecursosUsuarioUC());
+                    GridMain.Children.Add(new RecursosProveedorUC());
                     break;
                 case 2:
-                    GridMain.Children.Clear();
                     GridMain.Background = Brushes.CadetBlue;
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new RecursosUsuarioUC());
                     break;
                 case 3:
                     GridMain.Background = Brushes.DarkBlue;
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new RecursosMesaUC());
                     break;
-                case 4:
-                    GridMain.Background = Brushes.Firebrick;
-                    break;
-                case 5:
-                    GridMain.Background = Brushes.Gainsboro;
-                    break;
-                case 6:
-                    GridMain.Background = Brushes.HotPink;
-                    break;
+
             }
         }
     }
