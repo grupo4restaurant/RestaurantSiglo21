@@ -18,29 +18,48 @@ namespace Siglo21Desktop.Dao
             this.Client = new HttpClient();
         }
 
-        public async Task<HttpResponseMessage> Save(Rol obj) 
+        public async Task<int> Save(Rol obj) 
         {
             string ruta = CommonEnums.CrudPath.RolCrud;
             var response = await Client.PutAsJsonAsync(ruta, obj);
 
-            return response;
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = await response.Content.ReadAsAsync<int>();
+                return item;
+            }
+
+            return 0;
         }
 
-        public async Task<HttpResponseMessage> Update(Rol obj) 
+        public async Task<Boolean> Update(Rol obj) 
         {
             string ruta = CommonEnums.CrudPath.RolCrud;
             var response = await Client.PostAsJsonAsync(ruta, obj);
-            
-            return response;
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = await response.Content.ReadAsAsync<Boolean>();
+                return item;
+            }
+            return false;
         }
 
-        public async Task<HttpResponseMessage> Delete(int id)
+        public async Task<Boolean> Delete(int id)
         {
             
             string ruta = CommonEnums.CrudPath.RolCrud;
-            HttpResponseMessage response = await Client.DeleteAsync(ruta + id);                
+            var response = await Client.DeleteAsync(ruta + id);
 
-            return response;
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = await response.Content.ReadAsAsync<Boolean>();
+                return item;
+            }
+            return false;
         }
 
         public async Task<Rol> GetById(int id) 

@@ -26,10 +26,6 @@ namespace Siglo21Desktop.Control.Recursos
     public partial class RecursosUsuarioUC : UserControl
     {
         
-
-        //[JsonArray]
-        //public class Rols { public List<Rol> JSON; } 
-
         public RecursosUsuarioUC()
         {
             InitializeComponent();
@@ -44,11 +40,11 @@ namespace Siglo21Desktop.Control.Recursos
                 Rol obj = new Rol()
                 {
                     //rol_id = 21,
-                    rol_desc = "Test6",
-                    rol_index = 30
+                    rol_desc = "Test8",
+                    rol_index = 31
                 };
                 var response = await rolDao.Save(obj); 
-                response.EnsureSuccessStatusCode(); // Throw on error code.
+                
                 MessageBox.Show("Rol Añadido Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
@@ -70,7 +66,7 @@ namespace Siglo21Desktop.Control.Recursos
                     rol_index = 20
                 };
                 var response = await rolDao.Update(obj);
-                response.EnsureSuccessStatusCode(); // Throw on error code.
+                
                 MessageBox.Show("Rol Actualizado Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
@@ -85,9 +81,12 @@ namespace Siglo21Desktop.Control.Recursos
             RolDAO rolDao = new RolDAO();
             try
             {
-                HttpResponseMessage response = await rolDao.Delete(61);
-                response.EnsureSuccessStatusCode(); // Throw on error code.
-                MessageBox.Show("Rol Exitosamente Borrado!");
+                var response = await rolDao.Delete(101);
+                if (response)
+                {
+                    MessageBox.Show("Rol Exitosamente Borrado!");
+                }
+                
             }
             catch (Exception)
             {
@@ -101,7 +100,7 @@ namespace Siglo21Desktop.Control.Recursos
             try
             {                
                 var result = await rolDao.GetById(1);
-                //MessageBox.Show("Rol Encontrado!");
+                
             }
             catch (Exception)
             {

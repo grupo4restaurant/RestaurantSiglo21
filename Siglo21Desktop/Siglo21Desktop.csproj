@@ -67,6 +67,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dao\BoletaDAO.cs" />
+    <Compile Include="Dao\CatalogoProductoDAO.cs" />
+    <Compile Include="Dao\CategoriaMenuDAO.cs" />
+    <Compile Include="Dao\DetalleOrdenCompraDAO.cs" />
+    <Compile Include="Dao\DetalleOrdenInsumoDAO.cs" />
+    <Compile Include="Dao\DetalleOrdenMesaDAO.cs" />
+    <Compile Include="Dao\DetalleProductoRecetaDAO.cs" />
+    <Compile Include="Dao\DominioDAO.cs" />
+    <Compile Include="Dao\LoginDAO.cs" />
+    <Compile Include="Dao\MenuItemDAO.cs" />
+    <Compile Include="Dao\MesaDAO.cs" />
+    <Compile Include="Dao\OrdenCompraDAO.cs" />
+    <Compile Include="Dao\OrdenInsumoDAO.cs" />
+    <Compile Include="Dao\OrdenMesaDAO.cs" />
+    <Compile Include="Dao\ProductoDAO.cs" />
+    <Compile Include="Dao\ProveedorDAO.cs" />
+    <Compile Include="Dao\RecetaDAO.cs" />
+    <Compile Include="Dao\ReservaDAO.cs" />
+    <Compile Include="Dao\StockProductoDAO.cs" />
+    <Compile Include="Dao\UnidadMedidaDAO.cs" />
+    <Compile Include="Dao\UsuarioDAO.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
