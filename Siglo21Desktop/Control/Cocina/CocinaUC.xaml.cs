@@ -28,7 +28,7 @@ namespace Siglo21Desktop.Control.Cocina
         {
             int index = int.Parse(((Button)e.Source).Uid);
 
-            GridCursor.Margin = new Thickness(10 + (100 * index), 0, 0, 0);
+            GridCursor.Margin = new Thickness(10 + (400 * index), 0, 0, 0);
 
             switch (index)
             {

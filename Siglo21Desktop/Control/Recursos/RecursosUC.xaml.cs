@@ -28,7 +28,7 @@ namespace Siglo21Desktop.Control.Recursos
         {
             int index = int.Parse(((Button)e.Source).Uid);
 
-            GridCursor.Margin = new Thickness(10 + (170 * index), 0, 0, 0);
+            GridCursor.Margin = new Thickness(10 + (180 * index), 0, 0, 0);
 
             switch (index)
             {

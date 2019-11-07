@@ -28,7 +28,7 @@ namespace Siglo21Desktop.Control.Bodega
         {
             int index = int.Parse(((Button)e.Source).Uid);
 
-            GridCursor.Margin = new Thickness(10 + (150 * index), 0, 0, 0);
+            GridCursor.Margin = new Thickness(10 + (250 * index), 0, 0, 0);
 
             switch (index)
             {

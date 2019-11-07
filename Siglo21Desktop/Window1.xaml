@@ -8,19 +8,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         ResizeMode="NoResize"  FontSize="14" WindowStartupLocation="CenterScreen" >
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel>
-                <Button>boton 1</Button>
-                <Button>boton 2</Button>
-            </StackPanel>
-            <StackPanel>
-                <Button>boton 3</Button>
-                <Button>boton 4</Button>
-            </StackPanel>
-        </StackPanel>
+                
         
-        
-        <!--<Grid.RowDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -41,6 +31,6 @@
             </Grid>
             
         </StackPanel>
-        <ComboBox HorizontalAlignment="Left" Margin="96,195,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>-->
+        <ComboBox HorizontalAlignment="Left" Margin="96,195,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
