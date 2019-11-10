@@ -111,7 +111,6 @@ C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desk
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosUsuarioUC.g.cs
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Login.g.cs
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\MainWindow.g.cs
-C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Window1.g.cs
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\App.g.cs
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop_MarkupCompile.cache
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop_MarkupCompile.lref
@@ -126,7 +125,6 @@ C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desk
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosUsuarioUC.baml
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Login.baml
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\MainWindow.baml
-C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Window1.baml
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.g.resources
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.Properties.Resources.resources
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Siglo21Desktop.csproj.GenerateResource.cache
