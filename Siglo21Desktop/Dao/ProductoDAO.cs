@@ -61,5 +61,22 @@ namespace Siglo21Desktop.Dao
 
         }
 
+        public async Task<Producto> GetByCategoryId(int idCategoria)
+        {
+            string ruta = CommonEnums.ListadoPath.ProductosByCategoriaId + idCategoria;
+
+            HttpResponseMessage response = await Client.GetAsync(ruta);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = (await response.Content.ReadAsAsync<IEnumerable<Producto>>()).FirstOrDefault();
+                return item;
+            }
+
+            return null;
+
+        }
+
     }
 }
