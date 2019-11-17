@@ -138,3 +138,11 @@ C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desk
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosMesaUC.baml
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosProductoUC.baml
 C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosProveedorUC.baml
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Bodega\BodegaAlmacenamientoUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Bodega\BodegaAlmacenamientoUC.baml
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Bodega\BodegaOrdenCompraUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Bodega\BodegaRecepcionUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Bodega\BodegaOrdenCompraUC.baml
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Bodega\BodegaRecepcionUC.baml
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosMenuUC.g.cs
+C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\Control\Recursos\RecursosMenuUC.baml

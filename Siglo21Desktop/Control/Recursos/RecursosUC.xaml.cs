@@ -52,6 +52,11 @@ namespace Siglo21Desktop.Control.Recursos
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new RecursosMesaUC());
                     break;
+                case 4:
+                    GridMain.Background = Brushes.DarkBlue;
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new RecursosMenuUC());
+                    break;
 
             }
         }

@@ -34,29 +34,20 @@ namespace Siglo21Desktop.Control.Bodega
             {
                 case 0:
                     GridMain.Background = Brushes.Aquamarine;
-
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new BodegaAlmacenamientoUC());
                     break;
                 case 1:
                     GridMain.Background = Brushes.Beige;
                     GridMain.Children.Clear();
-                    //GridMain.Children.Add(new FinanzaUCForm());
+                    GridMain.Children.Add(new BodegaRecepcionUC());
                     break;
                 case 2:
+                    GridMain.Background = Brushes.Beige;
                     GridMain.Children.Clear();
-                    GridMain.Background = Brushes.CadetBlue;
+                    GridMain.Children.Add(new BodegaOrdenCompraUC());
                     break;
-                case 3:
-                    GridMain.Background = Brushes.DarkBlue;
-                    break;
-                case 4:
-                    GridMain.Background = Brushes.Firebrick;
-                    break;
-                case 5:
-                    GridMain.Background = Brushes.Gainsboro;
-                    break;
-                case 6:
-                    GridMain.Background = Brushes.HotPink;
-                    break;
+                
             }
         }
     }
