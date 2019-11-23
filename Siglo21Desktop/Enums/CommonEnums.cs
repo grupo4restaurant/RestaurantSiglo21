@@ -55,7 +55,7 @@ namespace Siglo21Desktop.Enums
             //public const string OrdenInsumoCrud = ApiRest.PathServer + "/siglo21/orden_insumo/";
             //public const string OrdenMesaCrud = ApiRest.PathServer + "/siglo21/orden_mesa/";
             public const string ProductosByCategoriaId = ApiRest.PathServer + "/siglo21/productos/";
-            //public const string ProveedorCrud = ApiRest.PathServer + "/siglo21/proveedor/";
+            public const string Proveedores = ApiRest.PathServer + "/siglo21/proveedores/";
             //public const string RecetaCrud = ApiRest.PathServer + "/siglo21/receta/";
             //public const string ReservaCrud = ApiRest.PathServer + "/siglo21/reserva/";
             //public const string RolCrud = ApiRest.PathServer + "/siglo21/rol/";

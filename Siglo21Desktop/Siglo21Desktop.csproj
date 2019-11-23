@@ -287,6 +287,8 @@
     <Resource Include="Assets\pizzabar.jpg" />
     <Resource Include="Assets\size_960_16_9_pizza2.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Formulario\Recursos\Usuario\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

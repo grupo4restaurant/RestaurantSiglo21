@@ -100,7 +100,6 @@ namespace Siglo21Desktop.Control.Recursos
             try
             {                
                 var result = await rolDao.GetById(1);
-                
             }
             catch (Exception)
             {
