@@ -36,18 +36,18 @@ namespace Siglo21Desktop.Formulario.Recursos.Proveedor
             var textoDireccion = txtDireccion.Text;
             var textoComuna = txtComuna.Text;
 
-            //ProveedorDAO proveedorDao = new ProveedorDAO();
+            ProveedorDAO proveedorDao = new ProveedorDAO();
             //try
             //{
-            //    //Proveedor obj = new Proveedor()
+            //    Proveedor obj = new Proveedor()
             //    {
 
-            //        //nombre = textoNombre,
-            //        //fono = textoFono,
-            //        //contacto = textoContacto,
-            //        //e_mail = textoEmail,
-            //        //direccion = textoDireccion,
-            //        //comuna = textoComuna
+            //        nombre = textoNombre,
+            //        fono = textoFono,
+            //        contacto = textoContacto,
+            //        e_mail = textoEmail,
+            //        direccion = textoDireccion,
+            //        comuna = textoComuna
             //    };
             //    var response = await proveedorDao.Save(obj);
 
