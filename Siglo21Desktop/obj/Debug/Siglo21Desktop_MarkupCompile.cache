@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\
+C:\Users\Danitza\Desktop\portafolio\RestaurantSiglo21_Escritorio\Siglo21Desktop\obj\Debug\
 Siglo21Desktop
 none
 false
 DEBUG;TRACE
-C:\Users\jhon.carrasco\Documents\GitHub\RestaurantSiglo21_Escritorio\Siglo21Desktop\App.xaml
-171863384699
+C:\Users\Danitza\Desktop\portafolio\RestaurantSiglo21_Escritorio\Siglo21Desktop\App.xaml
+19422458967
 
-671212596121
-751724844945
-Control\Atencion\AtencionUC.xaml;Control\Bodega\BodegaAlmacenamientoUC.xaml;Control\Bodega\BodegaOrdenCompraUC.xaml;Control\Bodega\BodegaRecepcionUC.xaml;Control\Bodega\BodegaUC.xaml;Control\Cocina\CocinaUC.xaml;Control\Finanza\FinanzaUC.xaml;Control\Finanza\FinanzaUCForm.xaml;Control\Inicio\InicioUC.xaml;Control\Recursos\RecursosMenuUC.xaml;Control\Recursos\RecursosMesaUC.xaml;Control\Recursos\RecursosProductoUC.xaml;Control\Recursos\RecursosProveedorUC.xaml;Control\Recursos\RecursosUC.xaml;Control\Recursos\RecursosUsuarioUC.xaml;Login.xaml;MainWindow.xaml;
+691608310681
+751493347
+Control\Atencion\AtencionUC.xaml;Control\Bodega\BodegaAlmacenamientoUC.xaml;Control\Bodega\BodegaOrdenCompraUC.xaml;Control\Bodega\BodegaRecepcionUC.xaml;Control\Bodega\BodegaUC.xaml;Control\Cocina\CocinaUC.xaml;Control\Finanza\FinanzaUC.xaml;Control\Finanza\FinanzaUCForm.xaml;Control\Inicio\InicioUC.xaml;Control\Recursos\IngresoProveedores.xaml;Control\Recursos\RecursosMenuUC.xaml;Control\Recursos\RecursosMesaUC.xaml;Control\Recursos\RecursosProductoUC.xaml;Control\Recursos\RecursosProveedorUC.xaml;Control\Recursos\RecursosUC.xaml;Control\Recursos\RecursosUsuarioUC.xaml;Formulario\Recursos\Proveedor\IngresoDeProveedores.xaml;Login.xaml;MainWindow.xaml;
 
 False
 

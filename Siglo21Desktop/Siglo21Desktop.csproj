@@ -91,6 +91,9 @@
     <Compile Include="Control\Bodega\BodegaRecepcionUC.xaml.cs">
       <DependentUpon>BodegaRecepcionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\Recursos\IngresoProveedores.xaml.cs">
+      <DependentUpon>IngresoProveedores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\Recursos\RecursosMenuUC.xaml.cs">
       <DependentUpon>RecursosMenuUC.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,9 @@
     <Compile Include="Dao\StockProductoDAO.cs" />
     <Compile Include="Dao\UnidadMedidaDAO.cs" />
     <Compile Include="Dao\UsuarioDAO.cs" />
+    <Compile Include="Formulario\Recursos\Proveedor\IngresoDeProveedores.xaml.cs">
+      <DependentUpon>IngresoDeProveedores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MyViewModel.cs" />
     <Page Include="Control\Atencion\AtencionUC.xaml">
       <SubType>Designer</SubType>
@@ -161,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Control\Recursos\IngresoProveedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\Recursos\RecursosMenuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Control\Recursos\RecursosUsuarioUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\Proveedor\IngresoDeProveedores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
