@@ -127,6 +127,7 @@
     <Compile Include="Dao\StockProductoDAO.cs" />
     <Compile Include="Dao\UnidadMedidaDAO.cs" />
     <Compile Include="Dao\UsuarioDAO.cs" />
+    <Compile Include="Entities\StockItem.cs" />
     <Compile Include="Formulario\Recursos\ProveedorForm\IngresoDeProveedores.xaml.cs">
       <DependentUpon>IngresoDeProveedores.xaml</DependentUpon>
     </Compile>
@@ -301,6 +302,8 @@
     <Resource Include="Assets\pizzabar.jpg" />
     <Resource Include="Assets\size_960_16_9_pizza2.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Style\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

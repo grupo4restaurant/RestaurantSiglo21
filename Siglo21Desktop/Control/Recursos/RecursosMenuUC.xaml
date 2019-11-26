@@ -5,17 +5,82 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Siglo21Desktop.Control.Recursos"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="366" Margin="10,74,0,0" VerticalAlignment="Top" Width="780">
+             d:DesignHeight="450" d:DesignWidth="800" >
+    
+        
+        <!--<DataGrid Name="myDataGrid" AutoGenerateColumns="False" CanUserAddRows="false"
+            Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            RowBackground="#fff" FontWeight="Bold" Foreground="#525252"
+            ScrollViewer.CanContentScroll="True" Height="390" MaxHeight="390"
+            AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Loaded="MyDataGrid_Loaded">    
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID"/>
-                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="NOMBRE"/>
-                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="CATEGORIA"/>
-                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Acción"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path='id'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Product" Binding="{Binding Path='name'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Path='phone'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Path='email'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Path='address'}" IsReadOnly="True" />
+                <DataGridTemplateColumn Header="View">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnView" Content="View" Click="btnView_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+        <UserControl.Resources>
+            <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
+
+            <!--<Demo:QuantityToBackgroundConverter x:Key="QuantityToBackgroundConverter"/>-->
+            <!--<Demo:QuantityToForegroundConverter x:Key="QuantityToForegroundConverter"/>-->
+            <!--<Demo:IsObsoleteToTextDecorationsConverter x:Key="IsObsoleteToTextDecorationsConverter"/>-->
+
+            <Style x:Key="QuantityStyle" TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <!--<Setter Property="Margin" Value="2,0,2,0" />
+      <Setter Property="Foreground" 
+              Value="{Binding 
+                RelativeSource={RelativeSource Self}, 
+                Path=Text, 
+                Converter={StaticResource QuantityToForegroundConverter}}" />
+      <Setter Property="TextDecorations" 
+                    Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, 
+                    Path =Item.IsObsolete, 
+                    Converter={StaticResource IsObsoleteToTextDecorationsConverter}}" />-->
+            </Style>
+        </UserControl.Resources>
+
+        <DataGrid
+    DataContext="{StaticResource ItemCollectionViewSource}"
+    ItemsSource="{Binding}"
+    AutoGenerateColumns="False"
+    >
+            <!--<DataGrid.RowStyle>
+                <Style TargetType="DataGridRow" >
+                    <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=Item.Quantity, Converter={StaticResource QuantityToBackgroundConverter}}" />
+                </Style>
+            </DataGrid.RowStyle>-->
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" FontWeight="Bold"/>
+                <DataGridTextColumn Binding="{Binding Path=Quantity}" Header="Quantity" ElementStyle="{StaticResource QuantityStyle}"/>
+                <DataGridCheckBoxColumn Header="Is Obsolete" Binding="{Binding Path=IsObsolete}" />
+                <DataGridTemplateColumn Header="View">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnView" Content="View" Click="btnView_Click" />
+                            <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" />
+                        </StackPanel>                            
+                    </DataTemplate>                    
+                </DataGridTemplateColumn.CellTemplate>                
+            </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
 
-
-    </Grid>
 </UserControl>
