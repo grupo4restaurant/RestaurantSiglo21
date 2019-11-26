@@ -127,7 +127,7 @@
     <Compile Include="Dao\StockProductoDAO.cs" />
     <Compile Include="Dao\UnidadMedidaDAO.cs" />
     <Compile Include="Dao\UsuarioDAO.cs" />
-    <Compile Include="Formulario\Recursos\Proveedor\IngresoDeProveedores.xaml.cs">
+    <Compile Include="Formulario\Recursos\ProveedorForm\IngresoDeProveedores.xaml.cs">
       <DependentUpon>IngresoDeProveedores.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MyViewModel.cs" />
@@ -195,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Formulario\Recursos\Proveedor\IngresoDeProveedores.xaml">
+    <Page Include="Formulario\Recursos\ProveedorForm\IngresoDeProveedores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -301,8 +301,6 @@
     <Resource Include="Assets\pizzabar.jpg" />
     <Resource Include="Assets\size_960_16_9_pizza2.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formulario\Recursos\Usuario\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
