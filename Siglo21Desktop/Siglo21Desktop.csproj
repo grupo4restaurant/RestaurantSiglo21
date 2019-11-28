@@ -303,6 +303,7 @@
     <Resource Include="Assets\size_960_16_9_pizza2.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Helpers\" />
     <Folder Include="Style\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
