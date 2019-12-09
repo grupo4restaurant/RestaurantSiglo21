@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Siglo21Desktop.Entities
 {
-    class CategoriaMenu
+    public class CategoriaMenu
     {
         public int cat_menu_id { get; set; }
         public string cat_menu_nombre { get; set; }

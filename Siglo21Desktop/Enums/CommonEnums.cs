@@ -42,14 +42,15 @@ namespace Siglo21Desktop.Enums
         {
             //public const string BoletaCrud = ApiRest.PathServer + "/siglo21/boleta/";
             //public const string CatalogoProductoCrud = ApiRest.PathServer + "/siglo21/catalogo_producto/";
-            //public const string CategoriaMenuCrud = ApiRest.PathServer + "/siglo21/categoria_menu/";
+            public const string CategoriaMenus = ApiRest.PathServer + "/siglo21/categoria_menus";
             //public const string DetalleOrdenCompraCrud = ApiRest.PathServer + "/siglo21/detalle_orden_compra/";
             //public const string DetalleOrdenInsumoCrud = ApiRest.PathServer + "/siglo21/detalle_orden_insumo/";
             //public const string DetalleOrdenMesaCrud = ApiRest.PathServer + "/siglo21/detalle_orden_mesa/";
             //public const string DetalleProductoRecetaCrud = ApiRest.PathServer + "/siglo21/detalle_producto_receta/";
             //public const string DominioCrud = ApiRest.PathServer + "/siglo21/dominio/";
             //public const string LoginCrud = ApiRest.PathServer + "/siglo21/login/";
-            //public const string MenutemCrud = ApiRest.PathServer + "/siglo21/menu_item/";
+            public const string MenuItems = ApiRest.PathServer + "/siglo21/menu_items/";
+            public const string MenuItemsCategoria = ApiRest.PathServer + "/siglo21/menu_item_categoria/";
             public const string MesasByEstado = ApiRest.PathServer + "/siglo21/mesas/";
             //public const string OrdenCompraCrud = ApiRest.PathServer + "/siglo21/orden_compra/";
             //public const string OrdenInsumoCrud = ApiRest.PathServer + "/siglo21/orden_insumo/";

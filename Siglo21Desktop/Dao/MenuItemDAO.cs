@@ -1,5 +1,6 @@
 ﻿using Siglo21Desktop.Entities;
 using Siglo21Desktop.Enums;
+using Siglo21Desktop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,39 @@ namespace Siglo21Desktop.Dao
             return null;
 
         }
+        //Obtener todo
+        public async Task<List<MenuItem>> GetAll()
+        {
+            string ruta = CommonEnums.ListadoPath.MenuItems;
 
+            HttpResponseMessage response = await Client.GetAsync(ruta);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = (await response.Content.ReadAsAsync<IEnumerable<MenuItem>>()).ToList();
+                return item;
+            }
+
+            return null;
+
+        }
+        //obtener todo con cruce de categoria
+        public async Task<List<MenuItemModel>> GetAllJoinCategoria()
+        {
+            string ruta = CommonEnums.ListadoPath.MenuItemsCategoria;
+
+            HttpResponseMessage response = await Client.GetAsync(ruta);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = (await response.Content.ReadAsAsync<IEnumerable<MenuItemModel>>()).ToList();
+                return item;
+            }
+
+            return null;
+
+        }
     }
 }

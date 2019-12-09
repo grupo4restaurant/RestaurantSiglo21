@@ -1,6 +1,11 @@
-﻿using Siglo21Desktop.Entities;
+﻿using Siglo21Desktop.Dao;
+using Siglo21Desktop.Entities;
+using Siglo21Desktop.Formulario.Recursos.MenuForm;
+using Siglo21Desktop.Helpers;
+using Siglo21Desktop.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -22,222 +27,168 @@ namespace Siglo21Desktop.Control.Recursos
     /// </summary>
     public partial class RecursosMenuUC : UserControl
     {
-        int pageIndex = 1;
-        private int numberOfRecPerPage;
-        //To check the paging direction according to use selection.
-        private enum PagingMode { First = 1, Next = 2, Previous = 3, Last = 4, PageCountChange = 5 };
+        private DataGridColumn currentSortColumn;
 
-        List<StockItem> myList = new List<StockItem>();
+        private ListSortDirection currentSortDirection;
 
         public RecursosMenuUC()
         {
             InitializeComponent();
-            //create business data
-            //var itemList = new List<StockItem>();
-            //itemList.Add(new StockItem { Name = "Many items", Quantity = 100, IsObsolete = false });
-            //itemList.Add(new StockItem { Name = "Enough items", Quantity = 10, IsObsolete = false });
-            //itemList.Add(new StockItem { Name = "Shortage item", Quantity = 1, IsObsolete = false });
-            //itemList.Add(new StockItem { Name = "Item with error", Quantity = -1, IsObsolete = false });
-            //itemList.Add(new StockItem { Name = "Obsolete item", Quantity = 200, IsObsolete = true });
-
-            cbNumberOfRecords.Items.Add("10");
-            cbNumberOfRecords.Items.Add("20");
-            cbNumberOfRecords.Items.Add("30");
-            cbNumberOfRecords.Items.Add("50");
-            cbNumberOfRecords.Items.Add("100");
-            cbNumberOfRecords.SelectedItem = 10;
-            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            this.Loaded += UserControl_Loaded;
+            
+            DataContext = new PaginacionMenu();
+            dg.Columns[0].Header = "Id";
+            dg.Columns[1].Header = "Nombre";
+            dg.Columns[2].Header = "Categoría";
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void txtName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            myList = GetData();
-            dataGrid.ItemsSource = myList.Take(numberOfRecPerPage);
-            int count = myList.Take(numberOfRecPerPage).Count();
-            lblpageInformation.Content = count + " of " + myList.Count;
-            dataGrid.Columns[0].Header = "Primero";
-            dataGrid.Columns[0].Header = "Segundo";
-            dataGrid.Columns[0].Header = "Tercero";
-        }
-
-        private List<StockItem> GetData()
-        {
-            List<StockItem> genericList = new List<StockItem>();
-            StockItem studentObj;
-            Random randomObj = new Random();
-            for (int i = 0; i < 1000; i++)
+            TextBox t = (TextBox)sender;
+            string filter = t.Text;
+            ICollectionView cv = CollectionViewSource.GetDefaultView(dg.ItemsSource);
+            if (filter == "")
+                cv.Filter = null;
+            else
             {
-                studentObj = new StockItem();
-                studentObj.Name = "First " + i;
-                studentObj.Quantity = (int)randomObj.Next(1, 100);
-                studentObj.IsObsolete = true;
-
-                genericList.Add(studentObj);
-            }
-            return genericList;
-        }
-
-        //private void btnCancel_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.Close();
-        //}
-
-        #region Pagination 
-        private void btnFirst_Click(object sender, System.EventArgs e)
-        {
-            Navigate((int)PagingMode.First);
-        }
-
-        private void btnNext_Click(object sender, System.EventArgs e)
-        {
-            Navigate((int)PagingMode.Next);
-
-        }
-
-        private void btnPrev_Click(object sender, System.EventArgs e)
-        {
-            Navigate((int)PagingMode.Previous);
-
-        }
-
-        private void btnLast_Click(object sender, System.EventArgs e)
-        {
-            Navigate((int)PagingMode.Last);
-        }
-
-        private void cbNumberOfRecords_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Navigate((int)PagingMode.PageCountChange);
-        }
-
-        private void Navigate(int mode)
-        {
-            int count;
-            switch (mode)
-            {
-                case (int)PagingMode.Next:
-                    btnPrev.IsEnabled = true;
-                    btnFirst.IsEnabled = true;
-                    if (myList.Count >= (pageIndex * numberOfRecPerPage))
+                cv.Filter = o =>
+                {
+                    MenuItemModel p = o as MenuItemModel;
+                                
+                    if (t.Name == "txtId" && IsNumeric(filter))
                     {
-                        if (myList.Skip(pageIndex * numberOfRecPerPage).Take(numberOfRecPerPage).Count() == 0)
-                        {
-                            dataGrid.ItemsSource = null;
-                            dataGrid.ItemsSource = myList.Skip((pageIndex * numberOfRecPerPage) - numberOfRecPerPage).Take(numberOfRecPerPage);
-                            count = (pageIndex * numberOfRecPerPage) + (myList.Skip(pageIndex * numberOfRecPerPage).Take(numberOfRecPerPage)).Count();
-                        }
-                        else
-                        {
-                            dataGrid.ItemsSource = null;
-                            dataGrid.ItemsSource = myList.Skip(pageIndex * numberOfRecPerPage).Take(numberOfRecPerPage);
-                            count = (pageIndex * numberOfRecPerPage) + (myList.Skip(pageIndex * numberOfRecPerPage).Take(numberOfRecPerPage)).Count();
-                            pageIndex++;
-                        }
-
-                        lblpageInformation.Content = count + " of " + myList.Count;
+                        return (p.item_id == Convert.ToInt32(filter));
                     }
-
-                    else
+                    if (t.Name == "txtCategoria")
                     {
-                        btnNext.IsEnabled = false;
-                        btnLast.IsEnabled = false;
+                        return (p.cat_menu_nombre.ToUpper().StartsWith(filter.ToUpper()));
                     }
-
-                    break;
-                case (int)PagingMode.Previous:
-                    btnNext.IsEnabled = true;
-                    btnLast.IsEnabled = true;
-                    if (pageIndex > 1)
-                    {
-                        pageIndex -= 1;
-                        dataGrid.ItemsSource = null;
-                        if (pageIndex == 1)
-                        {
-                            dataGrid.ItemsSource = myList.Take(numberOfRecPerPage);
-                            count = myList.Take(numberOfRecPerPage).Count();
-                            lblpageInformation.Content = count + " of " + myList.Count;
-                        }
-                        else
-                        {
-                            dataGrid.ItemsSource = myList.Skip(pageIndex * numberOfRecPerPage).Take(numberOfRecPerPage);
-                            count = Math.Min(pageIndex * numberOfRecPerPage, myList.Count);
-                            lblpageInformation.Content = count + " of " + myList.Count;
-                        }
-                    }
-                    else
-                    {
-                        btnPrev.IsEnabled = false;
-                        btnFirst.IsEnabled = false;
-                    }
-                    break;
-
-                case (int)PagingMode.First:
-                    pageIndex = 2;
-                    Navigate((int)PagingMode.Previous);
-                    break;
-                case (int)PagingMode.Last:
-                    pageIndex = (myList.Count / numberOfRecPerPage);
-                    Navigate((int)PagingMode.Next);
-                    break;
-
-                case (int)PagingMode.PageCountChange:
-                    pageIndex = 1;
-                    numberOfRecPerPage = Convert.ToInt32(cbNumberOfRecords.SelectedItem);
-                    dataGrid.ItemsSource = null;
-                    dataGrid.ItemsSource = myList.Take(numberOfRecPerPage);
-                    count = (myList.Take(numberOfRecPerPage)).Count();
-                    lblpageInformation.Content = count + " of " + myList.Count;
-                    btnNext.IsEnabled = true;
-                    btnLast.IsEnabled = true;
-                    btnPrev.IsEnabled = true;
-                    btnFirst.IsEnabled = true;
-                    break;
+                    return (p.item_nombre.ToUpper().StartsWith(filter.ToUpper()));
+                };
             }
         }
-
-        #endregion
-
+        
 
 
-        /// <summary>
-        /// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnView_Click(object sender, RoutedEventArgs e)
+        private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            MenuItemModel dataRowView = (MenuItemModel)((Button)e.Source).DataContext;
+            int item_id = dataRowView.item_id;
+            
+            ActualizarMenu ventana = new ActualizarMenu(item_id);
+            App.Current.MainWindow = ventana;
+            ventana.Show();
+
+        }
+
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItemModel dataRowView = (MenuItemModel)((Button)e.Source).DataContext;
+            int item_id = dataRowView.item_id;
+            MenuItemDAO dao = new MenuItemDAO();
             try
             {
-                StockItem dataRowView = (StockItem)((Button)e.Source).DataContext;
-                String ProductName = dataRowView.Name;
-                String ProductDescription = dataRowView.Quantity.ToString();
-                MessageBox.Show("You Clicked : " + ProductName + "\r\nDescription : " + ProductDescription);
-                //This is the code which will show the button click row data. Thank you.
+                var response = await dao.Delete(item_id);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Item Menú Exitosamente Borrado!");
+                }
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Item Menú no Borrado!");
             }
         }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            try
+            DataGrid dataGrid = (DataGrid)sender;
+
+            // The current sorted column must be specified in XAML.
+            currentSortColumn = dataGrid.Columns.Where(c => c.SortDirection.HasValue).Single();
+            currentSortDirection = currentSortColumn.SortDirection.Value;
+        }
+
+        
+        private void DataGrid_TargetUpdated(object sender, DataTransferEventArgs e)
+        {
+            if (currentSortColumn != null)
             {
-                StockItem dataRowView = (StockItem)((Button)e.Source).DataContext;
-                String ProductName = dataRowView.Name;
-                String ProductDescription = dataRowView.Quantity.ToString();
-                MessageBox.Show("You Clicked : " + ProductName + "\r\nDescription : " + ProductDescription + "\r\nBorrado!!!");
-                //This is the code which will show the button click row data. Thank you.
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
+                currentSortColumn.SortDirection = currentSortDirection;
             }
         }
 
         
+        private void DataGrid_Sorting(object sender, DataGridSortingEventArgs e)
+        {
+            e.Handled = true;
+
+            PaginacionMenu paginacionMenu = (PaginacionMenu)DataContext;
+
+            string sortField = String.Empty;
+
+            // Use a switch statement to check the SortMemberPath
+            // and set the sort column to the actual column name. In this case,
+            // the SortMemberPath and column names match.
+            switch (e.Column.SortMemberPath)
+            {
+                case ("item_id"):
+                    sortField = "Id";
+                    break;
+                case ("item_nombre"):
+                    sortField = "Name";
+                    break;
+                case ("cat_menu_nombre"):
+                    sortField = "Categoria";
+                    break;
+            }
+
+            ListSortDirection direction = (e.Column.SortDirection != ListSortDirection.Ascending) ?
+                ListSortDirection.Ascending : ListSortDirection.Descending;
+
+            bool sortAscending = direction == ListSortDirection.Ascending;
+
+            paginacionMenu.Sort(sortField, sortAscending);
+
+            currentSortColumn.SortDirection = null;
+
+            e.Column.SortDirection = direction;
+
+            currentSortColumn = e.Column;
+            currentSortDirection = direction;
+        }
+
+        public static System.Boolean IsNumeric(System.Object Expression)
+        {
+            if (Expression == null || Expression is DateTime)
+                return false;
+
+            if (Expression is Int16 || Expression is Int32 || Expression is Int64 || Expression is Decimal || Expression is Single || Expression is Double || Expression is Boolean)
+                return true;
+
+            try
+            {
+                if (Expression is string)
+                    Double.Parse(Expression as string);
+                else
+                    Double.Parse(Expression.ToString());
+                return true;
+            }
+            catch { } // just dismiss errors but return false
+            return false;
+        }
+
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
+        {
+            IngresoMenu ventana = new IngresoMenu();
+            App.Current.MainWindow = ventana;
+            ventana.Show();
+        }
     }
 }
+
+
+
+    
+
     

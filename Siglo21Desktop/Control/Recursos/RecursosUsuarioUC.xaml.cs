@@ -96,10 +96,12 @@ namespace Siglo21Desktop.Control.Recursos
 
         private async void Obtener_Button_Click(object sender, RoutedEventArgs e) 
         {
-            RolDAO rolDao = new RolDAO();
+            //RolDAO rolDao = new RolDAO();
+            CategoriaMenuDAO categoriaMenuDao = new CategoriaMenuDAO();
             try
             {                
-                var result = await rolDao.GetById(1);
+                //var result = await rolDao.GetById(1);
+                var result = await categoriaMenuDao.GetById(21);
             }
             catch (Exception)
             {

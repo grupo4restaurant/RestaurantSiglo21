@@ -5,132 +5,134 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Siglo21Desktop.Control.Recursos"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"  >
-    
-        
-        <!--<DataGrid Name="myDataGrid" AutoGenerateColumns="False" CanUserAddRows="false"
-            Margin="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-            RowBackground="#fff" FontWeight="Bold" Foreground="#525252"
-            ScrollViewer.CanContentScroll="True" Height="390" MaxHeight="390"
-            AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
-            ScrollViewer.HorizontalScrollBarVisibility="Visible"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-                  Loaded="MyDataGrid_Loaded">    
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Path='id'}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Product" Binding="{Binding Path='name'}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Path='phone'}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Path='email'}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Path='address'}" IsReadOnly="True" />
-                <DataGridTemplateColumn Header="View">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Name="btnView" Content="View" Click="btnView_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>--><!--
+             d:DesignHeight="600" d:DesignWidth="800" >
+    <!--d:DesignHeight="450" d:DesignWidth="800"-->
 
-        <UserControl.Resources>
-            <CollectionViewSource x:Key="ItemCollectionViewSource" CollectionViewType="ListCollectionView"/>
-
-            --><!--<Demo:QuantityToBackgroundConverter x:Key="QuantityToBackgroundConverter"/>-->
-            <!--<Demo:QuantityToForegroundConverter x:Key="QuantityToForegroundConverter"/>-->
-            <!--<Demo:IsObsoleteToTextDecorationsConverter x:Key="IsObsoleteToTextDecorationsConverter"/>--><!--
-
-            <Style x:Key="QuantityStyle" TargetType="TextBlock">
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                --><!--<Setter Property="Margin" Value="2,0,2,0" />
-      <Setter Property="Foreground" 
-              Value="{Binding 
-                RelativeSource={RelativeSource Self}, 
-                Path=Text, 
-                Converter={StaticResource QuantityToForegroundConverter}}" />
-      <Setter Property="TextDecorations" 
-                    Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}, 
-                    Path =Item.IsObsolete, 
-                    Converter={StaticResource IsObsoleteToTextDecorationsConverter}}" />--><!--
-            </Style>
-        </UserControl.Resources>
-
-        <DataGrid
-    DataContext="{StaticResource ItemCollectionViewSource}"
-    ItemsSource="{Binding}"
-    AutoGenerateColumns="False"
-    >
-            --><!--<DataGrid.RowStyle>
-                <Style TargetType="DataGridRow" >
-                    <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=Item.Quantity, Converter={StaticResource QuantityToBackgroundConverter}}" />
-                </Style>
-            </DataGrid.RowStyle>--><!--
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" FontWeight="Bold"/>
-                <DataGridTextColumn Binding="{Binding Path=Quantity}" Header="Quantity" ElementStyle="{StaticResource QuantityStyle}"/>
-                <DataGridCheckBoxColumn Header="Is Obsolete" Binding="{Binding Path=IsObsolete}" />
-                <DataGridTemplateColumn Header="View">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Name="btnView" Content="View" Click="btnView_Click" />
-                            <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" />
-                        </StackPanel>                            
-                    </DataTemplate>                    
-                </DataGridTemplateColumn.CellTemplate>                
-            </DataGridTemplateColumn>
-
-            </DataGrid.Columns>
-        </DataGrid>-->
-    <Grid OpacityMask="#FF423535">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
-        <!--<Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF85BDD6" Offset="0"/>
-                <GradientStop Color="#FF2F7B91" Offset="0.478"/>
-                <GradientStop Color="#FF4492A8" Offset="0.973"/>
-                <GradientStop Color="#FF72A6BF" Offset="0.227"/>
-                <GradientStop Color="#FF2EA4C5" Offset="0.739"/>
-            </LinearGradientBrush>
-        </Grid.Background>-->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label Content="My Pagination Works" FontWeight="Bold" FontSize="25" FontStretch="UltraExpanded" BorderBrush="Black"/>
+        
+        <StackPanel Orientation="Horizontal" >
+            <!--<Label Content="Menú" FontWeight="Bold" FontSize="20" FontStretch="UltraExpanded" BorderBrush="Black" HorizontalAlignment="Center"/>-->
+            <Button Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="100"  Opacity="0.75" Content="Nuevo" Click="btnNuevo_Click"/>
         </StackPanel>
-        <DataGrid x:Name="dataGrid" Grid.Row ="1" HorizontalAlignment="Left" Margin="5,0,5,0" VerticalAlignment="Top" AutoGenerateColumns="True"  
-                  CanUserSortColumns="true" IsReadOnly="False" ColumnWidth="*" CanUserAddRows="true" >
-            <DataGrid.Columns>                
-                <DataGridTemplateColumn Header="View" >
+        <DataGrid 
+            x:Name="dg"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            ItemsSource="{Binding ListaMenuItem, NotifyOnTargetUpdated=True}"
+            Sorting="DataGrid_Sorting"
+            TargetUpdated="DataGrid_TargetUpdated"
+            Loaded="DataGrid_Loaded"
+            Grid.Row ="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="PRODUCT ID"
+                    Binding="{Binding item_id}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtId" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>                    
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Header="PRODUCT NAME"
+                    Binding="{Binding item_nombre}"
+                    Width="*">
+                    
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                    <TextBox x:Name="txtName" Width="100" TextChanged="txtName_TextChanged"  />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Header="PRODUCT NAME"
+                    Binding="{Binding cat_menu_nombre}"
+                    Width="*">
+
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtCategoria" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+
+                </DataGridTextColumn>
+
+                <DataGridTemplateColumn Header="Acciones">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Name="btnView" Content="View" Click="btnView_Click" />
-                                <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" />
+                                <Button Name="btnView" Content="Editar" Click="btnUpdate_Click" />
+                                <Button Name="btnDelete" Content="Eliminar" Click="btnDelete_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="2" >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Height="23" HorizontalAlignment="Left"  Name="btnFirst" VerticalAlignment="Bottom" Width="40" Content="&lt;&lt;" Click="btnFirst_Click" Opacity="0.75"/>
-                <Button Height="23"  VerticalAlignment="Bottom" Name="btnPrev" Width="40" Click="btnPrev_Click" Opacity="0.75" Content="&lt;"/>
-                <Label x:Name="lblpageInformation" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="30" Width="100" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
-                <Button Height="23" HorizontalAlignment="Right" Name="btnNext" VerticalAlignment="Bottom" Width="40" Content="&gt;" Click="btnNext_Click" Opacity="0.75"/>
-                <Button Height="23" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="40" Name="btnLast" Click="btnLast_Click" Opacity="0.75" Content="&gt;&gt;"/>
-                <ComboBox x:Name="cbNumberOfRecords" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="120"  SelectedIndex="0" SelectionChanged="cbNumberOfRecords_SelectionChanged" Opacity="0.75"/>
+        <StackPanel
+            Margin="4"
+            Grid.Row="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Button                
+                Margin="4,0"
+                Content="&lt;&lt;"
+                Command="{Binding FirstCommand}"/>
+            <Button
+                Margin="4,0"
+                Content="&lt;"
+                Command="{Binding PreviousCommand}"/>
+            <StackPanel
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="{Binding Start}"/>
+                <TextBlock
+                    Text=" to "/>
+                <TextBlock
+                    Text="{Binding End}"/>
+                <TextBlock
+                    Text=" of "/>
+                <TextBlock
+                    Text="{Binding TotalItems}"/>
             </StackPanel>
-            <!--<Grid Grid.Row="3">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="412,62,430,-62">
+            <Button
+                Margin="4,0"
+                Content="&gt;"
+                Command="{Binding NextCommand}"/>
+            <Button
+                Margin="4,0"
+                Content="&gt;&gt;"
+                Command="{Binding LastCommand}"/>
+        </StackPanel>
+        <Grid Grid.Row="3">
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="412,62,430,-62">
                 <Button Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="btnCancel" Width="50"  Opacity="0.75" Content="Cancel" Click="btnCancel_Click"/>
-            </StackPanel>
-            </Grid>-->
+            </StackPanel>-->
         </Grid>
     </Grid>
+
 </UserControl>
