@@ -21,14 +21,25 @@
         </Grid.RowDefinitions>
 
         
-            <Label >Nombre:</Label>
-            <TextBox Grid.Column="1" Margin="0,0,0,10" x:Name="txtNombre" IsEnabled="False"/>
+            <Label >Fecha Creación:</Label>
+            <TextBox Grid.Column="1" Margin="0,0,0,10" x:Name="txtCreacion" />
 
-            <Label  Grid.Row="1">Código:</Label>
-            <TextBox Grid.Row="1" Grid.Column="1"
-                 Margin="0,0,0,10" x:Name="txtCod" IsEnabled="False"/>
-            <!--<Label Content="Menú" FontWeight="Bold" FontSize="20" FontStretch="UltraExpanded" BorderBrush="Black" HorizontalAlignment="Center"/>-->
-            <Button Grid.Row="2"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="100"  Opacity="0.75" Content="Agregar Item" Click="btnAgregar_Click"/>
+            <Label  Grid.Row="1">Fecha Gestionado:</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" x:Name="txtGestion" />
+
+            <Label  Grid.Row="2">Fecha Recepción:</Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" x:Name="txtRecepcion" />
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <Button Grid.Row="2"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="120"  Opacity="0.75" Content="Agregar Item" Click="btnNuevo_Click"/>
             <Button Grid.Row="2" Grid.Column="1" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="btnRefresh" Width="auto"  Opacity="0.75" Content="Refrescar" Click="btnRefresh_Click" Margin="200,0,0,0"/>
         
         <DataGrid 
@@ -144,8 +155,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Name="btnEditar" Content="Editar" Click="btnEditar_Click" />
-                                <!--<Button Name="btnRestar" Content="Restar" Click="btnRestar_Click" />-->
+                                <Button Name="btnEditar" Content="Editar" Click="btnUpdate_Click" />
+                                <Button Name="btnRestar" Content="Eliminar" Click="btnDelete_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -189,10 +200,10 @@
                 Content="&gt;&gt;"
                 Command="{Binding LastCommand}"/>
         </StackPanel>
-        <Grid Grid.Row="3">
-            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="412,62,430,-62">
+        <!--<Grid >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="412,62,430,-62">
                 <Button Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="btnCancel" Width="50"  Opacity="0.75" Content="Cancel" Click="btnCancel_Click"/>
-            </StackPanel>-->
-        </Grid>
+            </StackPanel>
+        </Grid>-->
     </Grid>
 </UserControl>

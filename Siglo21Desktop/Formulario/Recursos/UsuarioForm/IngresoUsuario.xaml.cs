@@ -56,36 +56,35 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
                 MessageBox.Show("Usuario ya Existe");
                 this.Close();
 
-            }
-           
-            else 
-
-            
-
-            
-            try
+            }           
+            else
             {
-                Usuario obj = new Usuario()
+                try
                 {
-                    rol_id = rol_id,
-                    nombre = nombre,
-                    ap_paterno = ap_paterno,
-                    ap_materno = ap_materno,
-                    e_mail = "aaa",
-                    fono = fono
-                };
-                var response = await dao.Save(obj);
+                    Usuario obj = new Usuario()
+                    {
+                        rol_id = rol_id,
+                        nombre = nombre,
+                        ap_paterno = ap_paterno,
+                        ap_materno = ap_materno,
+                        e_mail = "aaa",
+                        fono = fono
+                    };
+                    var response = await dao.Save(obj);
 
 
 
-                MessageBox.Show("Usuario Añadido Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.Close();
-                
+                    MessageBox.Show("Usuario Añadido Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Usuario no Añadido, Podría Existir Duplicidad de ID");
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Usuario no Añadido, Podría Existir Duplicidad de ID");
-            }
+
+            
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
