@@ -33,7 +33,6 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             Rol selectedRol = this.PerfilCB.SelectedItem as Rol;
-
             int rol_id = selectedRol.rol_id;
             string nombre = txtNombre.Text;
             string ap_paterno = txtPaterno.Text;
@@ -41,9 +40,29 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
 
             string fono = txtFono.Text;
 
+            UsuarioDAO dao = new UsuarioDAO();
+            var listadoUsuario = await dao.GetAll();
+            var result = (from u in listadoUsuario
+                          where u.nombre == nombre
+                             && u.ap_paterno == ap_paterno
+                             && u.ap_materno == ap_materno
+                          select new
+                          {
+                              u.usuario_id
+                          }).FirstOrDefault();
+
+            if (result != null) {
+
+                MessageBox.Show("Usuario ya Existe");
+                this.Close();
+
+            }
+           
+            else 
+
             
 
-            UsuarioDAO dao = new UsuarioDAO();
+            
             try
             {
                 Usuario obj = new Usuario()
