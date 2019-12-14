@@ -24,5 +24,15 @@ namespace Siglo21Desktop.Control.Bodega
         {
             InitializeComponent();
         }
+
+        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

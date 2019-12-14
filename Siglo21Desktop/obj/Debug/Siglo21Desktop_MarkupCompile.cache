@@ -16,5 +16,5 @@ C:\Users\Danitza\Desktop\desktop_duoc\RestaurantSiglo21_Escritorio\Siglo21Deskto
 761618254728
 Control\Atencion\AtencionUC.xaml;Control\Bodega\BodegaAlmacenamientoUC.xaml;Control\Bodega\BodegaOrdenCompraUC.xaml;Control\Bodega\BodegaRecepcionUC.xaml;Control\Bodega\BodegaUC.xaml;Control\Cocina\CocinaUC.xaml;Control\Finanza\FinanzaUC.xaml;Control\Finanza\FinanzaUCForm.xaml;Control\Inicio\InicioUC.xaml;Control\Recursos\RecursosMenuUC.xaml;Control\Recursos\RecursosMesaUC.xaml;Control\Recursos\RecursosProductoUC.xaml;Control\Recursos\RecursosProveedorUC.xaml;Control\Recursos\RecursosUC.xaml;Control\Recursos\RecursosUsuarioUC.xaml;Formulario\Bodega\Almacenamiento\EditarForm.xaml;Formulario\Recursos\MenuForm\ActualizarMenu.xaml;Formulario\Recursos\MenuForm\IngresoMenu.xaml;Formulario\Recursos\MesaForm\ActualizarMesa.xaml;Formulario\Recursos\MesaForm\IngresoMesa.xaml;Formulario\Recursos\ProductoForm\ActualizarProducto.xaml;Formulario\Recursos\ProductoForm\IngresoProducto.xaml;Formulario\Recursos\ProveedorForm\ActualizarProveedor.xaml;Formulario\Recursos\ProveedorForm\IngresoDeProveedores.xaml;Formulario\Recursos\UsuarioForm\ActualizarUsuario.xaml;Formulario\Recursos\UsuarioForm\IngresoUsuario.xaml;Login.xaml;MainWindow.xaml;
 
-False
+True
 
