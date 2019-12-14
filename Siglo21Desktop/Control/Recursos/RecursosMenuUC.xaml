@@ -19,6 +19,7 @@
         <StackPanel Orientation="Horizontal" >
             <!--<Label Content="Menú" FontWeight="Bold" FontSize="20" FontStretch="UltraExpanded" BorderBrush="Black" HorizontalAlignment="Center"/>-->
             <Button Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="100"  Opacity="0.75" Content="Nuevo" Click="btnNuevo_Click"/>
+            <Button Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="btnRefresh" Width="auto"  Opacity="0.75" Content="Refrescar" Click="btnRefresh_Click" Margin="570,0,0,0"/>
         </StackPanel>
         <DataGrid 
             x:Name="dg"

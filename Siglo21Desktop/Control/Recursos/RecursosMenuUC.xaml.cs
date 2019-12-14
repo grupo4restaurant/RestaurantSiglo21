@@ -184,6 +184,11 @@ namespace Siglo21Desktop.Control.Recursos
             App.Current.MainWindow = ventana;
             ventana.Show();
         }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new PaginacionMenu();
+        }
     }
 }
 

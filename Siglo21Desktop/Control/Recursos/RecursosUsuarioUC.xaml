@@ -8,19 +8,194 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical">
-            
-            
-            <Button Width="150"  VerticalAlignment="Bottom"  Content="Guardar" Click="Guardar_Button_Click"/>
-
-            <Button Width="150"  VerticalAlignment="Bottom"  Content="Actualizar" Click="Actualizar_Button_Click"/>
-
-            <Button Width="150"  VerticalAlignment="Bottom"  Content="Borrar" Click="Borrar_Button_Click" />
-
-            <Button Width="150"  VerticalAlignment="Bottom"  Content="Obtener" Click="Obtener_Button_Click"/>
+        <StackPanel Orientation="Horizontal" >
+            <!--<Label Content="Menú" FontWeight="Bold" FontSize="20" FontStretch="UltraExpanded" BorderBrush="Black" HorizontalAlignment="Center"/>-->
+            <Button Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="100"  Opacity="0.75" Content="Nuevo" Click="btnNuevo_Click"/>
+            <Button Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="btnRefresh" Width="auto"  Opacity="0.75" Content="Refrescar" Click="btnRefresh_Click" Margin="570,0,0,0"/>
         </StackPanel>
+        <DataGrid 
+            x:Name="dg"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            ItemsSource="{Binding Listado, NotifyOnTargetUpdated=True}"
+            Sorting="DataGrid_Sorting"
+            TargetUpdated="DataGrid_TargetUpdated"
+            Loaded="DataGrid_Loaded"
+            Grid.Row ="1"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <DataGrid.Columns>    
+                
+                <DataGridTextColumn
+                    Header="ID"
+                    Binding="{Binding usuario_id}"
+                    Width="*"
+                    SortDirection="Ascending">                    
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtId" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
 
+                <DataGridTextColumn
+                    Header="Nombre"
+                    Binding="{Binding nombre}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtNombre" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
 
+                <DataGridTextColumn
+                    Header="Paterno"
+                    Binding="{Binding ap_paterno}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtPaterno" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Header="Materno"
+                    Binding="{Binding ap_materno}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtMaterno" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Header="E-Mail"
+                    Binding="{Binding e_mail}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtEmail" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Header="Teléfono"
+                    Binding="{Binding fono}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtFono" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Header="Perfil"
+                    Binding="{Binding rol_desc}"
+                    Width="*"
+                    SortDirection="Ascending">
+                    <DataGridTextColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Content, RelativeSource=
+                                         {RelativeSource Mode=TemplatedParent}}"/>
+                                <TextBox x:Name="txtPerfil" Width="100" TextChanged="txtName_TextChanged"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTextColumn.HeaderTemplate>
+                </DataGridTextColumn>
+
+                <DataGridTemplateColumn Header="Acciones">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="btnView" Content="Editar" Click="btnUpdate_Click" />
+                                <Button Name="btnDelete" Content="Eliminar" Click="btnDelete_Click" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel
+            Margin="4"
+            Grid.Row="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Button                
+                Margin="4,0"
+                Content="&lt;&lt;"
+                Command="{Binding FirstCommand}"/>
+            <Button
+                Margin="4,0"
+                Content="&lt;"
+                Command="{Binding PreviousCommand}"/>
+            <StackPanel
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="{Binding Start}"/>
+                <TextBlock
+                    Text=" to "/>
+                <TextBlock
+                    Text="{Binding End}"/>
+                <TextBlock
+                    Text=" of "/>
+                <TextBlock
+                    Text="{Binding TotalItems}"/>
+            </StackPanel>
+            <Button
+                Margin="4,0"
+                Content="&gt;"
+                Command="{Binding NextCommand}"/>
+            <Button
+                Margin="4,0"
+                Content="&gt;&gt;"
+                Command="{Binding LastCommand}"/>
+        </StackPanel>
+        <Grid Grid.Row="3">
+            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="412,62,430,-62">
+                <Button Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="btnCancel" Width="50"  Opacity="0.75" Content="Cancel" Click="btnCancel_Click"/>
+            </StackPanel>-->
+        </Grid>
     </Grid>
 </UserControl>

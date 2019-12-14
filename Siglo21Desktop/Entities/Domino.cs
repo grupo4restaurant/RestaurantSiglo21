@@ -11,7 +11,7 @@ namespace Siglo21Desktop.Entities
         public int dom_id { get; set; }
         public string dom_val_dom { get; set; }
         public string dom_desc { get; set; }
-        public string dom_val { get; set; }
+        public int dom_val { get; set; }
         public int dom_estado { get; set; }
     }
 }

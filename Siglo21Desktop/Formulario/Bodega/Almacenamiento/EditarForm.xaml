@@ -1,0 +1,74 @@
+﻿<Window x:Class="Siglo21Desktop.Formulario.Bodega.Almacenamiento.EditarForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Siglo21Desktop.Formulario.Bodega.Almacenamiento"
+        mc:Ignorable="d"
+        Title="EditarForm" Height="450" Width="800">
+    <Grid Margin="50" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <Label >Nombre:</Label>
+        <TextBox Grid.Column="1" Margin="0,0,0,10" x:Name="txtNombre" IsEnabled="False"/>
+
+        <Label  Grid.Row="1">Código:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 Margin="0,0,0,10" x:Name="txtCod" IsEnabled="False"/>
+
+
+        <Label Grid.Row="2">Catálogo:</Label>
+        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="CatalogoCB" IsEnabled="False">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding nombre}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Grid.Row="3">Proveedor:</Label>
+        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ProveedorCB" IsEnabled="False">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding nombre}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Grid.Row="4">Stock:</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtStock" IsEnabled="False" />
+
+        <Label Grid.Row="5">Cambiar Mínimo:</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtMinimo"  />
+
+        <Label Grid.Row="6">Cantidad Items:</Label>
+        <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtCantidad"  />
+
+
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal"
+            HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Content="Aumentar" Click="btnAgregar_Click"/>
+            <Button Content="Disminuir" Click="btnRebajar_Click" Margin="20,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

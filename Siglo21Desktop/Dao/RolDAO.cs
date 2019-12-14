@@ -78,5 +78,22 @@ namespace Siglo21Desktop.Dao
             return null;
 
         }
+        public async Task<List<Rol>> GetAll()
+        {
+            string ruta = CommonEnums.ListadoPath.RolTodo;
+
+            HttpResponseMessage response = await Client.GetAsync(ruta);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = (await response.Content.ReadAsAsync<IEnumerable<Rol>>()).ToList();
+                return item;
+            }
+
+            return null;
+
+        }
+
     }
 }

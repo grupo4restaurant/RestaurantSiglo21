@@ -64,6 +64,302 @@ namespace Siglo21Desktop
             return filtered;
         }
 
-        
+        internal static ObservableCollection<MesaModel> GetMesa(int start, int itemCount, string sortColumn, bool ascending, out int totalItems, BindableCollection<MesaModel> lista)
+        {
+            totalItems = lista.Count;
+
+            ObservableCollection<MesaModel> sorted = new ObservableCollection<MesaModel>();
+
+            // Sort the products. In reality, the items should be stored in a database and
+            // use SQL statements for sorting and querying items.
+            switch (sortColumn)
+            {
+                case ("Tipo1"):
+                    sorted = new ObservableCollection<MesaModel>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.mesa_id
+                        select p
+                    );
+                    break;
+                case ("Tipo2"):
+                    sorted = new ObservableCollection<MesaModel>
+                    (
+                        from p in lista
+                        orderby p.mesa_numero
+                        select p
+                    );
+                    break;
+                case ("Tipo3"):
+                    sorted = new ObservableCollection<MesaModel>
+                    (
+                        from p in lista
+                        orderby p.mesa_numero_descripcion
+                        select p
+                    );
+                    break;
+                case ("Tipo4"):
+                    sorted = new ObservableCollection<MesaModel>
+                    (
+                        from p in lista
+                        orderby p.mesa_capacidad
+                        select p
+                    );
+                    break;
+            }
+
+            sorted = ascending ? sorted : new ObservableCollection<MesaModel>(sorted.Reverse());
+
+            ObservableCollection<MesaModel> filtered = new ObservableCollection<MesaModel>();
+
+            for (int i = start; i < start + itemCount && i < totalItems; i++)
+            {
+                filtered.Add(sorted[i]);
+            }
+
+            return filtered;
+        }
+
+        internal static ObservableCollection<Proveedor> GetProveedores(int start, int itemCount, string sortColumn, bool ascending, out int totalItems, BindableCollection<Proveedor> lista)
+        {
+            totalItems = lista.Count;
+
+            ObservableCollection<Proveedor> sorted = new ObservableCollection<Proveedor>();
+
+            // Sort the products. In reality, the items should be stored in a database and
+            // use SQL statements for sorting and querying items.
+            switch (sortColumn)
+            {
+                case ("Tipo1"):
+                    sorted = new ObservableCollection<Proveedor>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.nombre
+                        select p
+                    );
+                    break;
+                case ("Tipo2"):
+                    sorted = new ObservableCollection<Proveedor>
+                    (
+                        from p in lista
+                        orderby p.fono
+                        select p
+                    );
+                    break;
+                case ("Tipo3"):
+                    sorted = new ObservableCollection<Proveedor>
+                    (
+                        from p in lista
+                        orderby p.contacto
+                        select p
+                    );
+                    break;
+                case ("Tipo4"):
+                    sorted = new ObservableCollection<Proveedor>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.e_mail
+                        select p
+                    );
+                    break;
+                case ("Tipo5"):
+                    sorted = new ObservableCollection<Proveedor>
+                    (
+                        from p in lista
+                        orderby p.direccion
+                        select p
+                    );
+                    break;
+                //case ("Tipo6"):
+                //    sorted = new ObservableCollection<Proveedor>
+                //    (
+                //        from p in lista
+                //        orderby p.comuna
+                //        select p
+                //    );
+                //    break;
+            }
+
+            sorted = ascending ? sorted : new ObservableCollection<Proveedor>(sorted.Reverse());
+
+            ObservableCollection<Proveedor> filtered = new ObservableCollection<Proveedor>();
+
+            for (int i = start; i < start + itemCount && i < totalItems; i++)
+            {
+                filtered.Add(sorted[i]);
+            }
+
+            return filtered;
+        }
+
+        internal static ObservableCollection<UsuarioModel> GetUsuarios(int start, int itemCount, string sortColumn, bool ascending, out int totalItems, BindableCollection<UsuarioModel> lista)
+        {
+            totalItems = lista.Count;
+
+            ObservableCollection<UsuarioModel> sorted = new ObservableCollection<UsuarioModel>();
+
+            // Sort the products. In reality, the items should be stored in a database and
+            // use SQL statements for sorting and querying items.
+            switch (sortColumn)
+            {
+                case ("Tipo1"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        from p in lista
+                        orderby p.usuario_id
+                        select p
+                    );
+                    break;
+                case ("Tipo2"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.nombre
+                        select p
+                    );
+                    break;
+                case ("Tipo3"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        from p in lista
+                        orderby p.ap_paterno
+                        select p
+                    );
+                    break;
+                case ("Tipo4"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        from p in lista
+                        orderby p.ap_materno
+                        select p
+                    );
+                    break;
+                case ("Tipo5"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.e_mail
+                        select p
+                    );
+                    break;
+                case ("Tipo6"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        from p in lista
+                        orderby p.fono
+                        select p
+                    );
+                    break;
+                case ("Tipo7"):
+                    sorted = new ObservableCollection<UsuarioModel>
+                    (
+                        from p in lista
+                        orderby p.rol_desc
+                        select p
+                    );
+                    break;
+            }
+
+            sorted = ascending ? sorted : new ObservableCollection<UsuarioModel>(sorted.Reverse());
+
+            ObservableCollection<UsuarioModel> filtered = new ObservableCollection<UsuarioModel>();
+
+            for (int i = start; i < start + itemCount && i < totalItems; i++)
+            {
+                filtered.Add(sorted[i]);
+            }
+
+            return filtered;
+        }
+
+        internal static ObservableCollection<ProductoModel> GetProductos(int start, int itemCount, string sortColumn, bool ascending, out int totalItems, BindableCollection<ProductoModel> lista)
+        {
+            totalItems = lista.Count;
+
+            ObservableCollection<ProductoModel> sorted = new ObservableCollection<ProductoModel>();
+
+            // Sort the products. In reality, the items should be stored in a database and
+            // use SQL statements for sorting and querying items.
+            switch (sortColumn)
+            {
+                case ("Tipo1"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        from p in lista
+                        orderby p.producto_id
+                        select p
+                    );
+                    break;
+                case ("Tipo2"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.nombre
+                        select p
+                    );
+                    break;
+                case ("Tipo3"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        from p in lista
+                        orderby p.cod
+                        select p
+                    );
+                    break;
+                case ("Tipo4"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        from p in lista
+                        orderby p.nombre_catalogo
+                        select p
+                    );
+                    break;
+                case ("Tipo5"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.nombre_proveedor
+                        select p
+                    );
+                    break;
+                case ("Tipo6"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        from p in lista
+                        orderby p.valor_neto
+                        select p
+                    );
+                    break;
+                case ("Tipo7"):
+                    sorted = new ObservableCollection<ProductoModel>
+                    (
+                        from p in lista
+                        orderby p.stock
+                        select p
+                    );
+                    break;
+
+            }
+
+            sorted = ascending ? sorted : new ObservableCollection<ProductoModel>(sorted.Reverse());
+
+            ObservableCollection<ProductoModel> filtered = new ObservableCollection<ProductoModel>();
+
+            for (int i = start; i < start + itemCount && i < totalItems; i++)
+            {
+                filtered.Add(sorted[i]);
+            }
+
+            return filtered;
+        }
+
+
     }
 }

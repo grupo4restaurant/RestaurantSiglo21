@@ -44,16 +44,16 @@ namespace Siglo21Desktop.Dao
             return response;
         }
 
-        public async Task<Domino> GetById(int id)
+        public async Task<List<Domino>> GetAllByDomValDom(string dom_val_dom)
         {
-            string ruta = CommonEnums.CrudPath.DominioCrud + id;
+            string ruta = CommonEnums.ListadoPath.DominioPorDomValDom + dom_val_dom;
 
             HttpResponseMessage response = await Client.GetAsync(ruta);
 
             if (response.IsSuccessStatusCode)
             {
 
-                var item = (await response.Content.ReadAsAsync<IEnumerable<Domino>>()).FirstOrDefault();
+                var item = (await response.Content.ReadAsAsync<IEnumerable<Domino>>()).ToList();
                 return item;
             }
 

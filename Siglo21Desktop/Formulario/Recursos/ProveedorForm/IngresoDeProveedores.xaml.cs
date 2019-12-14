@@ -52,7 +52,7 @@ namespace Siglo21Desktop.Formulario.Recursos.ProveedorForm
                 var response = proveedorDao.Save(obj);
 
                 MessageBox.Show("Proveedor Añadido Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                this.Close();
             }
             catch (Exception ex)
             {

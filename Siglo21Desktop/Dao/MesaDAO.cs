@@ -1,5 +1,6 @@
 ﻿using Siglo21Desktop.Entities;
 using Siglo21Desktop.Enums;
+using Siglo21Desktop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,5 +62,21 @@ namespace Siglo21Desktop.Dao
 
         }
 
+        public async Task<List<Mesa>> GetAll()
+        {
+            string ruta = "http://localhost:8090/siglo21/mesa_todo/";
+
+            HttpResponseMessage response = await Client.GetAsync(ruta);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = (await response.Content.ReadAsAsync<IEnumerable<Mesa>>()).ToList();
+                return item;
+            }
+
+            return null;
+
+        }
     }
 }

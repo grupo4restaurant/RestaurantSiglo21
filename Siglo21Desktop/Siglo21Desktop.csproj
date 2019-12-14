@@ -94,9 +94,6 @@
     <Compile Include="Control\Bodega\BodegaRecepcionUC.xaml.cs">
       <DependentUpon>BodegaRecepcionUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Control\Recursos\IngresoProveedores.xaml.cs">
-      <DependentUpon>IngresoProveedores.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Control\Recursos\RecursosMenuUC.xaml.cs">
       <DependentUpon>RecursosMenuUC.xaml</DependentUpon>
     </Compile>
@@ -131,18 +128,48 @@
     <Compile Include="Dao\UnidadMedidaDAO.cs" />
     <Compile Include="Dao\UsuarioDAO.cs" />
     <Compile Include="DataAccess.cs" />
-    <Compile Include="Entities\StockItem.cs" />
+    <Compile Include="Formulario\Bodega\Almacenamiento\EditarForm.xaml.cs">
+      <DependentUpon>EditarForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\Recursos\MenuForm\ActualizarMenu.xaml.cs">
       <DependentUpon>ActualizarMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Formulario\Recursos\MenuForm\IngresoMenu.xaml.cs">
       <DependentUpon>IngresoMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Recursos\MesaForm\ActualizarMesa.xaml.cs">
+      <DependentUpon>ActualizarMesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Recursos\MesaForm\IngresoMesa.xaml.cs">
+      <DependentUpon>IngresoMesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Recursos\ProductoForm\ActualizarProducto.xaml.cs">
+      <DependentUpon>ActualizarProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Recursos\ProductoForm\IngresoProducto.xaml.cs">
+      <DependentUpon>IngresoProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Recursos\ProveedorForm\ActualizarProveedor.xaml.cs">
+      <DependentUpon>ActualizarProveedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\Recursos\ProveedorForm\IngresoDeProveedores.xaml.cs">
       <DependentUpon>IngresoDeProveedores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Recursos\UsuarioForm\ActualizarUsuario.xaml.cs">
+      <DependentUpon>ActualizarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Recursos\UsuarioForm\IngresoUsuario.xaml.cs">
+      <DependentUpon>IngresoUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\PaginacionMenu.cs" />
+    <Compile Include="Helpers\PaginacionMesa.cs" />
+    <Compile Include="Helpers\PaginacionProducto.cs" />
+    <Compile Include="Helpers\PaginacionProveedor.cs" />
+    <Compile Include="Helpers\PaginacionUsuario.cs" />
     <Compile Include="Model\MenuItemModel.cs" />
+    <Compile Include="Model\MesaModel.cs" />
+    <Compile Include="Model\ProductoModel.cs" />
+    <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Page Include="Control\Atencion\AtencionUC.xaml">
       <SubType>Designer</SubType>
@@ -180,10 +207,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Control\Recursos\IngresoProveedores.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Control\Recursos\RecursosMenuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +231,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Formulario\Bodega\Almacenamiento\EditarForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Formulario\Recursos\MenuForm\ActualizarMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,7 +243,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Formulario\Recursos\MesaForm\ActualizarMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\MesaForm\IngresoMesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\ProductoForm\ActualizarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\ProductoForm\IngresoProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\ProveedorForm\ActualizarProveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Formulario\Recursos\ProveedorForm\IngresoDeProveedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\UsuarioForm\ActualizarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Recursos\UsuarioForm\IngresoUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

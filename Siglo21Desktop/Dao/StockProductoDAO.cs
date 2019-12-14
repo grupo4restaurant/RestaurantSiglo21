@@ -60,5 +60,23 @@ namespace Siglo21Desktop.Dao
             return null;
 
         }
+
+        public async Task<List<StockProducto>> GetAll()
+        {
+            string ruta = CommonEnums.ListadoPath.StockProductoTodo;
+
+            HttpResponseMessage response = await Client.GetAsync(ruta);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var item = (await response.Content.ReadAsAsync<IEnumerable<StockProducto>>()).ToList();
+                return item;
+            }
+
+            return null;
+
+        }
+
     }
 }
