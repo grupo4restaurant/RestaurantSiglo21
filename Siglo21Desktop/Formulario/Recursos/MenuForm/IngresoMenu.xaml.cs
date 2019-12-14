@@ -45,7 +45,24 @@ namespace Siglo21Desktop.Formulario.Recursos.MenuForm
             valor = Int32.Parse(txtValor.Text);
 
             MenuItemDAO dao = new MenuItemDAO();
-            try
+            var listadoMenu = await dao.GetAll();
+            var result = (from u in listadoMenu
+                          where u.item_nombre == nombre
+                          select new
+                          {
+                              u.cat_menu_id
+                          }).FirstOrDefault();
+
+            if (result != null)
+            {
+
+                MessageBox.Show("Menú ya Existe");
+                this.Close();
+
+            }
+
+            else
+                try
             {
                 Entities.MenuItem obj = new Entities.MenuItem()
                 {

@@ -44,7 +44,27 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
 
 
             UsuarioDAO dao = new UsuarioDAO();
-            try
+            var listadoUsuario = await dao.GetAll();
+            var result = (from u in listadoUsuario
+                          where u.nombre == nombre
+                             && u.ap_paterno == ap_paterno
+                             && u.ap_materno == ap_materno
+                          select new
+                          {
+                              u.usuario_id
+                          }).FirstOrDefault();
+
+            if (result != null)
+            {
+
+                MessageBox.Show("Usuario ya Existe");
+                this.Close();
+
+            }
+
+            else
+
+                try
             {
                 Usuario obj = new Usuario()
                 {
