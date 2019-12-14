@@ -26,8 +26,9 @@ namespace Siglo21Desktop.Formulario.Recursos.ProveedorForm
             InitializeComponent();
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+           
             var textoNombre = txtNombre.Text;
             var textoFono = txtFono.Text;
             var textoContacto = txtContacto.Text;
@@ -35,9 +36,30 @@ namespace Siglo21Desktop.Formulario.Recursos.ProveedorForm
             var textoDireccion = txtDireccion.Text;
             var textoComuna = txtComuna.Text;
 
-            ProveedorDAO proveedorDao = new ProveedorDAO();
-       
-            try
+            ProveedorDAO dao = new ProveedorDAO();
+            var listadoProveedor = await dao.GetAll();
+            var result = (from u in listadoProveedor
+                          where u.nombre == textoNombre
+                            
+                          select new
+                          {
+                              u.proveedor_id
+                          }).FirstOrDefault();
+
+            if (result != null)
+            {
+
+                MessageBox.Show("Proveedor ya Existe");
+                this.Close();
+
+            }
+
+            else
+
+
+
+
+                try
             {
                 Proveedor obj = new Proveedor()
                 {
@@ -49,7 +71,7 @@ namespace Siglo21Desktop.Formulario.Recursos.ProveedorForm
                     direccion = textoDireccion,
                     comuna = textoComuna
                 };
-                var response = proveedorDao.Save(obj);
+                var response = dao.Save(obj);
 
                 MessageBox.Show("Proveedor Añadido Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();

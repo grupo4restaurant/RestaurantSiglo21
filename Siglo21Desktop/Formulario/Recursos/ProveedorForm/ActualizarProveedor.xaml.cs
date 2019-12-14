@@ -40,8 +40,29 @@ namespace Siglo21Desktop.Formulario.Recursos.ProveedorForm
             string direccion = txtDireccion.Text;
             string comuna = txtComuna.Text;
 
+
             ProveedorDAO dao = new ProveedorDAO();
-            try
+            var listadoProveedor = await dao.GetAll();
+            var result = (from u in listadoProveedor
+                          where u.nombre == nombre
+
+                          select new
+                          {
+                              u.proveedor_id
+                          }).FirstOrDefault();
+
+            if (result != null)
+            {
+
+                MessageBox.Show("Proveedor ya Existe");
+                this.Close();
+
+            }
+
+            else
+
+
+                try
             {
                 Proveedor obj = new Proveedor()
                 {
