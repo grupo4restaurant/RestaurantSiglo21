@@ -42,24 +42,24 @@ namespace Siglo21Desktop.Formulario.Recursos.ProveedorForm
 
 
             ProveedorDAO dao = new ProveedorDAO();
-            var listadoProveedor = await dao.GetAll();
-            var result = (from u in listadoProveedor
-                          where u.nombre == nombre
+            //var listadoProveedor = await dao.GetAll();
+            //var result = (from u in listadoProveedor
+            //              where u.nombre == nombre
 
-                          select new
-                          {
-                              u.proveedor_id
-                          }).FirstOrDefault();
+            //              select new
+            //              {
+            //                  u.proveedor_id
+            //              }).FirstOrDefault();
 
-            if (result != null)
-            {
+            //if (result != null)
+            //{
 
-                MessageBox.Show("Proveedor ya Existe");
-                this.Close();
+            //    MessageBox.Show("Proveedor ya Existe");
+            //    this.Close();
 
-            }
+            //}
 
-            else
+            //else
 
 
                 try

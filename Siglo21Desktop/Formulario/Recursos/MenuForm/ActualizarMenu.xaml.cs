@@ -48,23 +48,23 @@ namespace Siglo21Desktop.Formulario.Recursos.MenuForm
 
             MenuItemDAO dao = new MenuItemDAO();
 
-            var listadoMenu = await dao.GetAll();
-            var result = (from u in listadoMenu
-                          where u.item_nombre == nombre
-                          select new
-                          {
-                              u.cat_menu_id
-                          }).FirstOrDefault();
+            //var listadoMenu = await dao.GetAll();
+            //var result = (from u in listadoMenu
+            //              where u.item_nombre == nombre
+            //              select new
+            //              {
+            //                  u.cat_menu_id
+            //              }).FirstOrDefault();
 
-            if (result != null)
-            {
+            //if (result != null)
+            //{
 
-                MessageBox.Show("Menú ya Existe");
-                this.Close();
+            //    MessageBox.Show("Menú ya Existe");
+            //    this.Close();
 
-            }
+            //}
 
-            else
+            //else
                 try
             {
                 Entities.MenuItem obj = new Entities.MenuItem()

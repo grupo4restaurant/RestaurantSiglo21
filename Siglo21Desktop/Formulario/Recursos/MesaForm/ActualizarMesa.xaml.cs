@@ -39,23 +39,23 @@ namespace Siglo21Desktop.Formulario.Recursos.MesaForm
             string capacidad = txtCapacidad.Text;
 
             MesaDAO dao = new MesaDAO();
-            var listadoMesa = await dao.GetAll();
-            var result = (from u in listadoMesa
-                          where u.mesa_numero == mesa
-                          select new
-                          {
-                              u.mesa_id
-                          }).FirstOrDefault();
+            //var listadoMesa = await dao.GetAll();
+            //var result = (from u in listadoMesa
+            //              where u.mesa_numero == mesa
+            //              select new
+            //              {
+            //                  u.mesa_id
+            //              }).FirstOrDefault();
 
-            if (result != null)
-            {
+            //if (result != null)
+            //{
 
-                MessageBox.Show("Mesa ya Existe");
-                this.Close();
+            //    MessageBox.Show("Mesa ya Existe");
+            //    this.Close();
 
-            }
+            //}
 
-            else
+            //else
 
                 try
             {

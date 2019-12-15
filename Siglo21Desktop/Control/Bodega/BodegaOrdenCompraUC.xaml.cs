@@ -1,4 +1,5 @@
-﻿using Siglo21Desktop.Helpers;
+﻿using Siglo21Desktop.Entities;
+using Siglo21Desktop.Helpers;
 using Siglo21Desktop.Model;
 using System;
 using System.Collections.Generic;
@@ -47,30 +48,33 @@ namespace Siglo21Desktop.Control.Bodega
             {
                 cv.Filter = o =>
                 {
-                    ProductoModel p = o as ProductoModel;
+                    OrdenCompra p = o as OrdenCompra;
 
                     if (t.Name == "txtId" && IsNumeric(filter))
                     {
-                        return (p.producto_id == Convert.ToInt32(filter));
+                        return (p.orden_compra_id == Convert.ToInt32(filter));
                     }
-                    if (t.Name == "txtNombre")
+                    if (t.Name == "txtCreacion")
                     {
-                        return (p.nombre.ToUpper().StartsWith(filter.ToUpper()));
+                        return (p.fecha_creacion.ToString().ToUpper().StartsWith(filter.ToUpper()));
                     }
-                    if (t.Name == "txtCod")
+                    if (t.Name == "txtGestion")
                     {
-                        return (p.cod.ToUpper().StartsWith(filter.ToUpper()));
+                        return (p.fecha_gestionada.ToString().ToUpper().StartsWith(filter.ToUpper()));
                     }
-                    if (t.Name == "txtCategoria")
+                    if (t.Name == "txtRecepcion")
                     {
-                        return (p.nombre_catalogo.ToUpper().StartsWith(filter.ToUpper()));
+                        return (p.fecha_recepcion.ToString().ToUpper().StartsWith(filter.ToUpper()));
                     }
-                    if (t.Name == "txtProveedor")
+                    if (t.Name == "txtEstado" && IsNumeric(filter))
                     {
-                        return (p.nombre_proveedor.ToUpper().StartsWith(filter.ToUpper()));
+                        return (p.estado == Convert.ToInt32(filter));
                     }
-
-                    return (p.valor_neto == Convert.ToInt32(filter));
+                    if (t.Name == "txtSubtotal")
+                    {
+                        return (p.total_val_neto.ToString().ToUpper().StartsWith(filter.ToUpper()));
+                    }
+                    return (p.total_val_iva.ToString().ToUpper().StartsWith(filter.ToUpper()));
 
                 };
             }
@@ -136,7 +140,7 @@ namespace Siglo21Desktop.Control.Bodega
         {
             e.Handled = true;
 
-            PaginacionProducto paginacionMenu = (PaginacionProducto)DataContext;
+            PaginacionOdenCompra paginacionMenu = (PaginacionOdenCompra)DataContext;
 
             string sortField = String.Empty;
 
@@ -145,22 +149,22 @@ namespace Siglo21Desktop.Control.Bodega
             // the SortMemberPath and column names match.
             switch (e.Column.SortMemberPath)
             {
-                case ("producto_id"):
+                case ("fecha_creacion"):
                     sortField = "Tipo1";
                     break;
-                case ("nombre"):
+                case ("fecha_gestionada"):
                     sortField = "Tipo2";
                     break;
-                case ("cod"):
+                case ("fecha_recepcion"):
                     sortField = "Tipo3";
                     break;
-                case ("nombre_catalogo"):
+                case ("estado"):
                     sortField = "Tipo4";
                     break;
-                case ("nombre_proveedor"):
+                case ("total_val_neto"):
                     sortField = "Tipo5";
                     break;
-                case ("valor_neto"):
+                case ("total_val_iva"):
                     sortField = "Tipo6";
                     break;
 

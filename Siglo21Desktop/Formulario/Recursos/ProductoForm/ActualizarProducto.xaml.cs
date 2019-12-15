@@ -47,24 +47,24 @@ namespace Siglo21Desktop.Formulario.Recursos.ProductoForm
 
             ProductoDAO dao = new ProductoDAO();
 
-            var listadoProducto = await dao.GetAll();
-            var result = (from u in listadoProducto
-                          where u.nombre == nombre &&
-                                u.cod == cod
-                          select new
-                          {
-                              u.cat_prod_id
-                          }).FirstOrDefault();
+            //var listadoProducto = await dao.GetAll();
+            //var result = (from u in listadoProducto
+            //              where u.nombre == nombre &&
+            //                    u.cod == cod
+            //              select new
+            //              {
+            //                  u.cat_prod_id
+            //              }).FirstOrDefault();
 
-            if (result != null)
-            {
+            //if (result != null)
+            //{
 
-                MessageBox.Show("Producto ya Existe");
-                this.Close();
+            //    MessageBox.Show("Producto ya Existe");
+            //    this.Close();
 
-            }
+            //}
 
-            else
+            //else
 
                 try
             {

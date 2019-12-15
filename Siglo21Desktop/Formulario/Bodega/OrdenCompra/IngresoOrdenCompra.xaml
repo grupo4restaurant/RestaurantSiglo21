@@ -1,26 +1,60 @@
-﻿<UserControl x:Class="Siglo21Desktop.Control.Bodega.BodegaOrdenCompraUC"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Siglo21Desktop.Control.Bodega"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  >
-        
+﻿<Window x:Class="Siglo21Desktop.Formulario.Bodega.OrdenCompra.IngresoOrdenCompra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Siglo21Desktop.Formulario.Bodega.OrdenCompra"
+        mc:Ignorable="d"
+        Title="IngresoOrdenCompra" Height="450" Width="800">
+    <!--<Grid  Background="beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" >
-            <Button Grid.Row="6"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="120"  Opacity="0.75" Content="Agregar Item" Click="btnNuevo_Click"/>
-            <Button Grid.Row="6" Grid.Column="1" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="btnRefresh" Width="auto"  Opacity="0.75" Content="Refrescar" Click="btnRefresh_Click" Margin="200,0,0,0"/>
-        </StackPanel>
+        <Label >Fecha Creación:</Label>
+        <TextBox Grid.Column="1" Margin="0,0,0,10" x:Name="txtCreacion" />
+
+        <Label  Grid.Row="1">Fecha Gestionado:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" x:Name="txtGestion" />
+
+        <Label  Grid.Row="2">Fecha Recepción:</Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" x:Name="txtRecepcion" />
+
+        <Label  Grid.Row="3">Estado :</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,0,0,10" x:Name="txtEstado" />
+
+        <Label  Grid.Row="4">Subtotal:</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,0,10" x:Name="txtSubtotal" />
+
+        <Label  Grid.Row="5">Total + IVA:</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="0,0,0,10" x:Name="txtTotalIva" />
+
+
+
+
+
+
+
+
+
+
+        <Button Grid.Row="6"  Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="btnNuevo" Width="120"  Opacity="0.75" Content="Agregar Item" Click="btnNuevo_Click"/>
+        <Button Grid.Row="6" Grid.Column="1" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" x:Name="btnRefresh" Width="auto"  Opacity="0.75" Content="Refrescar" Click="btnRefresh_Click" Margin="200,0,0,0"/>
 
         <DataGrid 
             x:Name="dg"
@@ -30,13 +64,14 @@
             Sorting="DataGrid_Sorting"
             TargetUpdated="DataGrid_TargetUpdated"
             Loaded="DataGrid_Loaded"
-            Grid.Row ="1"
-            ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            Grid.Row ="7"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            Grid.ColumnSpan="2">
             <DataGrid.Columns>
 
                 <DataGridTextColumn
                     Header="ID"
-                    Binding="{Binding orden_compra_id}"
+                    Binding="{Binding producto_id}"
                     Width="*"
                     SortDirection="Ascending">
                     <DataGridTextColumn.HeaderTemplate>
@@ -51,8 +86,8 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-                    Header="Fecha Creación"
-                    Binding="{Binding fecha_creacion}"
+                    Header="Nombre"
+                    Binding="{Binding nombre}"
                     Width="*"
                     SortDirection="Ascending">
                     <DataGridTextColumn.HeaderTemplate>
@@ -60,15 +95,15 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{Binding Content, RelativeSource=
                                          {RelativeSource Mode=TemplatedParent}}"/>
-                                <TextBox x:Name="txtCreacion" Width="100" TextChanged="txtName_TextChanged"  />
+                                <TextBox x:Name="txtNombre" Width="100" TextChanged="txtName_TextChanged"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTextColumn.HeaderTemplate>
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-                    Header="Fecha Gestión"
-                    Binding="{Binding fecha_gestionada}"
+                    Header="Codigo"
+                    Binding="{Binding cod}"
                     Width="*"
                     SortDirection="Ascending">
                     <DataGridTextColumn.HeaderTemplate>
@@ -76,15 +111,15 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{Binding Content, RelativeSource=
                                          {RelativeSource Mode=TemplatedParent}}"/>
-                                <TextBox x:Name="txtGestion" Width="100" TextChanged="txtName_TextChanged"  />
+                                <TextBox x:Name="txtCod" Width="100" TextChanged="txtName_TextChanged"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTextColumn.HeaderTemplate>
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-                    Header="Fecha Recepción"
-                    Binding="{Binding fecha_recepcion}"
+                    Header="Categoría"
+                    Binding="{Binding nombre_catalogo}"
                     Width="*"
                     SortDirection="Ascending">
                     <DataGridTextColumn.HeaderTemplate>
@@ -92,15 +127,15 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{Binding Content, RelativeSource=
                                          {RelativeSource Mode=TemplatedParent}}"/>
-                                <TextBox x:Name="txtRecepcion" Width="100" TextChanged="txtName_TextChanged"  />
+                                <TextBox x:Name="txtCategoria" Width="100" TextChanged="txtName_TextChanged"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTextColumn.HeaderTemplate>
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-                    Header="Estado"
-                    Binding="{Binding estado}"
+                    Header="Proveedor"
+                    Binding="{Binding nombre_proveedor}"
                     Width="*"
                     SortDirection="Ascending">
                     <DataGridTextColumn.HeaderTemplate>
@@ -108,15 +143,15 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{Binding Content, RelativeSource=
                                          {RelativeSource Mode=TemplatedParent}}"/>
-                                <TextBox x:Name="txtEstado" Width="100" TextChanged="txtName_TextChanged"  />
+                                <TextBox x:Name="txtProveedor" Width="100" TextChanged="txtName_TextChanged"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTextColumn.HeaderTemplate>
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-                    Header="Subtotal"
-                    Binding="{Binding total_val_neto}"
+                    Header="Stock"
+                    Binding="{Binding stock}"
                     Width="*"
                     SortDirection="Ascending">
                     <DataGridTextColumn.HeaderTemplate>
@@ -124,23 +159,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="{Binding Content, RelativeSource=
                                          {RelativeSource Mode=TemplatedParent}}"/>
-                                <TextBox x:Name="txtSubtotal" Width="100" TextChanged="txtName_TextChanged"  />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTextColumn.HeaderTemplate>
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-                    Header="Total + IVA"
-                    Binding="{Binding total_val_iva}"
-                    Width="*"
-                    SortDirection="Ascending">
-                    <DataGridTextColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Content, RelativeSource=
-                                         {RelativeSource Mode=TemplatedParent}}"/>
-                                <TextBox x:Name="txtTotalIva" Width="100" TextChanged="txtName_TextChanged"  />
+                                <TextBox x:Name="txtStock" Width="100" TextChanged="txtName_TextChanged"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTextColumn.HeaderTemplate>
@@ -160,7 +179,7 @@
         </DataGrid>
         <StackPanel
             Margin="4"
-            Grid.Row="2"
+            Grid.Row="8"
             Orientation="Horizontal"
             HorizontalAlignment="Center"
              Grid.ColumnSpan="2">
@@ -195,10 +214,6 @@
                 Content="&gt;&gt;"
                 Command="{Binding LastCommand}"/>
         </StackPanel>
-        <!--<Grid >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="412,62,430,-62">
-                <Button Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Name="btnCancel" Width="50"  Opacity="0.75" Content="Cancel" Click="btnCancel_Click"/>
-            </StackPanel>
-        </Grid>-->
-    </Grid>
-</UserControl>
+        
+    </Grid>-->
+</Window>

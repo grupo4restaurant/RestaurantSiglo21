@@ -31,7 +31,7 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
             this.Loaded += Window_Loaded;
         }
 
-        
+
         private async void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             Rol selectedRol = this.PerfilCB.SelectedItem as Rol;
@@ -44,28 +44,10 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
 
 
             UsuarioDAO dao = new UsuarioDAO();
-            var listadoUsuario = await dao.GetAll();
-            var result = (from u in listadoUsuario
-                          where u.nombre == nombre
-                             && u.ap_paterno == ap_paterno
-                             && u.ap_materno == ap_materno
-                          select new
-                          {
-                              u.usuario_id
-                          }).FirstOrDefault();
+            
+            try
+            { 
 
-            if (result != null)
-            {
-
-                MessageBox.Show("Usuario ya Existe");
-                this.Close();
-
-            }
-
-            else
-
-                try
-            {
                 Usuario obj = new Usuario()
                 {
                     usuario_id = this.usuario_id,
@@ -76,12 +58,12 @@ namespace Siglo21Desktop.Formulario.Recursos.UsuarioForm
                     e_mail = e_mail,
                     fono = fono
                 };
-                var response = await dao.Update(obj);
+            var response = await dao.Update(obj);
 
-                MessageBox.Show("Usuario Actualizado Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Usuario Actualizado Exitosamente", "Result", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                this.Close();
-                
+            this.Close();
+
             }
             catch (Exception ex)
             {

@@ -131,6 +131,9 @@
     <Compile Include="Formulario\Bodega\Almacenamiento\EditarForm.xaml.cs">
       <DependentUpon>EditarForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Bodega\OrdenCompra\IngresoOrdenCompra.xaml.cs">
+      <DependentUpon>IngresoOrdenCompra.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\Recursos\MenuForm\ActualizarMenu.xaml.cs">
       <DependentUpon>ActualizarMenu.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,7 @@
     </Compile>
     <Compile Include="Helpers\PaginacionMenu.cs" />
     <Compile Include="Helpers\PaginacionMesa.cs" />
+    <Compile Include="Helpers\PaginacionOdenCompra.cs" />
     <Compile Include="Helpers\PaginacionProducto.cs" />
     <Compile Include="Helpers\PaginacionProveedor.cs" />
     <Compile Include="Helpers\PaginacionUsuario.cs" />
@@ -232,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Formulario\Bodega\Almacenamiento\EditarForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formulario\Bodega\OrdenCompra\IngresoOrdenCompra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -360,6 +360,79 @@ namespace Siglo21Desktop
             return filtered;
         }
 
+        internal static ObservableCollection<OrdenCompra> GetOrdenCompras(int start, int itemCount, string sortColumn, bool ascending, out int totalItems, BindableCollection<OrdenCompra> lista)
+        {
+            totalItems = lista.Count;
+
+            ObservableCollection<OrdenCompra> sorted = new ObservableCollection<OrdenCompra>();
+
+            // Sort the products. In reality, the items should be stored in a database and
+            // use SQL statements for sorting and querying items.
+            switch (sortColumn)
+            {
+                case ("Tipo1"):
+                    sorted = new ObservableCollection<OrdenCompra>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.fecha_creacion
+                        select p
+                    );
+                    break;
+                case ("Tipo2"):
+                    sorted = new ObservableCollection<OrdenCompra>
+                    (
+                        from p in lista
+                        orderby p.fecha_gestionada
+                        select p
+                    );
+                    break;
+                case ("Tipo3"):
+                    sorted = new ObservableCollection<OrdenCompra>
+                    (
+                        from p in lista
+                        orderby p.fecha_recepcion
+                        select p
+                    );
+                    break;
+                case ("Tipo4"):
+                    sorted = new ObservableCollection<OrdenCompra>
+                    (
+                        //obtiene el listado de datos de la entidad representado por products
+                        from p in lista
+                        orderby p.estado
+                        select p
+                    );
+                    break;
+                case ("Tipo5"):
+                    sorted = new ObservableCollection<OrdenCompra>
+                    (
+                        from p in lista
+                        orderby p.total_val_neto
+                        select p
+                    );
+                    break;
+                case ("Tipo6"):
+                    sorted = new ObservableCollection<OrdenCompra>
+                    (
+                        from p in lista
+                        orderby p.total_val_iva
+                        select p
+                    );
+                    break;
+            }
+
+            sorted = ascending ? sorted : new ObservableCollection<OrdenCompra>(sorted.Reverse());
+
+            ObservableCollection<OrdenCompra> filtered = new ObservableCollection<OrdenCompra>();
+
+            for (int i = start; i < start + itemCount && i < totalItems; i++)
+            {
+                filtered.Add(sorted[i]);
+            }
+
+            return filtered;
+        }
 
     }
 }
